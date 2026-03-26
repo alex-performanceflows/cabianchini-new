@@ -178,6 +178,6 @@ export const contactInfo = {
   cf: "80120153",
   vat: "01132640267",
   cin: "IT026081B5H3NYFQMK",
-  facebook: "https://www.facebook.com",
-  instagram: "https://www.instagram.com",
+  facebook: "https://www.facebook.com/agriturismocabianchini/?locale=it_IT",
+  instagram: "https://www.instagram.com/agriturismocabianchini/",
 };

@@ -7,7 +7,6 @@
 import { useState } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { MapView } from "@/components/Map";
 import { MapPin, Phone, Mail, Clock, Facebook, Instagram } from "lucide-react";
 
 export default function Contatti() {
@@ -95,11 +94,11 @@ export default function Contatti() {
               Telefono
             </h3>
             <a
-              href="tel:+390422000000"
+              href="tel:+393488144556"
               className="text-[#2C2C2C] text-[13px] leading-[1.6] hover:text-[#C4A265] transition-colors"
               style={{ fontFamily: "'Source Sans 3', sans-serif" }}
             >
-              +39 0422 000000
+              +39 348 814 4556
             </a>
           </div>
 
@@ -144,7 +143,7 @@ export default function Contatti() {
         {/* Social */}
         <div className="mt-6 flex gap-4">
           <a
-            href="https://www.facebook.com/cabianchini"
+            href="https://www.facebook.com/agriturismocabianchini/?locale=it_IT"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-2 text-sm text-[#5a5a5a] hover:text-[#C4A265] transition-colors"
@@ -154,7 +153,7 @@ export default function Contatti() {
             Facebook
           </a>
           <a
-            href="https://www.instagram.com/cabianchini"
+            href="https://www.instagram.com/agriturismocabianchini/"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-2 text-sm text-[#5a5a5a] hover:text-[#C4A265] transition-colors"
@@ -172,18 +171,15 @@ export default function Contatti() {
 
           {/* Mappa */}
           <div className="h-[500px] lg:h-auto min-h-[400px]">
-            <MapView
-              onMapReady={(map: google.maps.Map) => {
-                const position = { lat: 45.6667, lng: 12.2833 };
-                map.setCenter(position);
-                map.setZoom(14);
-                new google.maps.Marker({
-                  position,
-                  map,
-                  title: "Ca' Bianchini Agriturismo",
-                });
-              }}
-              className="w-full h-full"
+            <iframe
+              src="https://maps.google.com/maps?q=Ca'+Bianchini+Agriturismo,+Via+Bianchini+10,+Lanzago+di+Silea+TV&z=14&output=embed&hl=it"
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="Ca' Bianchini Agriturismo - Mappa"
             />
           </div>
 

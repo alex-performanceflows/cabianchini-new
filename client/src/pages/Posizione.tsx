@@ -5,7 +5,6 @@
 import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight, MapPin, Clock, Car, Plane, Train } from "lucide-react";
-import { MapView } from "@/components/Map";
 import Header from "@/components/Header";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
@@ -66,11 +65,17 @@ const destinations = [
 
 export default function Posizione() {
   const [departure, setDeparture] = useState("");
+  const [mapSrc, setMapSrc] = useState(
+    "https://maps.google.com/maps?q=Ca'+Bianchini+Agriturismo,+Via+Bianchini+10,+Lanzago+di+Silea+TV&z=14&output=embed&hl=it"
+  );
 
   const handleShowRoute = () => {
     if (!departure.trim()) return;
-    const dest = "Ca'+Bianchini+Agriturismo,+Via+Bianchini+10,+Lanzago+di+Silea+TV";
-    window.open(`https://www.google.com/maps/dir/${encodeURIComponent(departure)}/${dest}`, "_blank");
+    const dest = "Via+Bianchini+10,+31057+Lanzago+di+Silea+TV";
+    const origin = encodeURIComponent(departure.trim());
+    setMapSrc(
+      `https://maps.google.com/maps?saddr=${origin}&daddr=${dest}&output=embed&hl=it`
+    );
   };
 
   return (
@@ -147,34 +152,17 @@ export default function Posizione() {
             </button>
           </div>
 
-          {/* Mappa Google Maps */}
+          {/* Mappa Google Maps — embed iframe */}
           <div className="w-full overflow-hidden" style={{ height: "500px" }}>
-            <MapView
-              onMapReady={(map) => {
-                const position = { lat: 45.6897, lng: 12.2503 };
-                map.setCenter(position);
-                map.setZoom(13);
-
-                const marker = new google.maps.Marker({
-                  position,
-                  map,
-                  title: "Ca' Bianchini Agriturismo",
-                  animation: google.maps.Animation.DROP,
-                });
-
-                const infoWindow = new google.maps.InfoWindow({
-                  content: `
-                    <div style="font-family: sans-serif; padding: 8px 4px;">
-                      <strong style="font-size: 14px; color: #2C2C2C;">Ca' Bianchini Agriturismo</strong><br/>
-                      <span style="font-size: 12px; color: #666;">Via Bianchini, 10</span><br/>
-                      <span style="font-size: 12px; color: #666;">31057 Lanzago di Silea (TV)</span>
-                    </div>
-                  `,
-                });
-
-                marker.addListener("click", () => infoWindow.open(map, marker));
-                infoWindow.open(map, marker);
-              }}
+            <iframe
+              src={mapSrc}
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="Ca' Bianchini Agriturismo - Mappa"
             />
           </div>
 

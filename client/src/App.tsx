@@ -10,6 +10,7 @@ import Posizione from "./pages/Posizione";
 import Contatti from "./pages/Contatti";
 import Dintorni from "./pages/Dintorni";
 import AppartamentoDetail from "./pages/AppartamentoDetail";
+import WhatsAppWidget from "./components/WhatsAppWidget";
 
 function Router() {
   return (
@@ -33,6 +34,7 @@ function App() {
         <TooltipProvider>
           <Toaster />
           <Router />
+          <WhatsAppWidget />
         </TooltipProvider>
       </ThemeProvider>
     </ErrorBoundary>

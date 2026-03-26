@@ -81,6 +81,20 @@ export default function ContactSection() {
                 </a>
               </div>
             </div>
+
+            {/* Mappa piccola sotto ai contatti */}
+            <div className="mt-6 w-full overflow-hidden rounded-sm" style={{ height: "200px" }}>
+              <iframe
+                src="https://maps.google.com/maps?q=Ca'+Bianchini+Agriturismo,+Via+Bianchini+10,+Lanzago+di+Silea+TV&z=14&output=embed&hl=it"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen={false}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Ca' Bianchini - Posizione"
+              />
+            </div>
           </motion.div>
 
           {/* Right: Form */}
@@ -152,6 +166,7 @@ export default function ContactSection() {
           </motion.div>
         </div>
       </div>
+
     </section>
   );
 }

@@ -137,7 +137,7 @@ export default function Header() {
               src={currentLogo}
               alt="Ca' Bianchini"
               className="h-12 md:h-14 w-auto transition-all duration-500"
-              style={{ filter: isWhiteLogo ? "none" : "grayscale(100%) brightness(0.6) contrast(0.9)" }}
+              style={undefined}
             />
           </Link>
 

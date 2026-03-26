@@ -95,6 +95,23 @@ export default function ContactSection() {
                 title="Ca' Bianchini - Posizione"
               />
             </div>
+
+            {/* Servizi extra */}
+            <p
+              className="mt-5 text-[13px] text-[#2C2C2C]/60 leading-[1.7]"
+              style={{ fontFamily: "var(--font-body)", fontWeight: 300 }}
+            >
+              Collaboriamo con{" "}
+              <a
+                href="https://treviso.bike/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[#C4A265] hover:underline"
+              >
+                Treviso Bike
+              </a>{" "}
+              per il noleggio bici e con un servizio taxi per i vostri spostamenti.
+            </p>
           </motion.div>
 
           {/* Right: Form */}

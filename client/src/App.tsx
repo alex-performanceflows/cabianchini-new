@@ -11,6 +11,10 @@ import Contatti from "./pages/Contatti";
 import Dintorni from "./pages/Dintorni";
 import AppartamentoDetail from "./pages/AppartamentoDetail";
 import WhatsAppWidget from "./components/WhatsAppWidget";
+import InformativaErogazioni from "./pages/InformativaErogazioni";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import CookiePolicy from "./pages/CookiePolicy";
+import CookieBanner from "./components/CookieBanner";
 
 function Router() {
   return (
@@ -21,6 +25,9 @@ function Router() {
       <Route path={"/posizione"} component={Posizione} />
       <Route path={"/contatti"} component={Contatti} />
       <Route path={"/dintorni"} component={Dintorni} />
+      <Route path={"/informativa-erogazioni-pubbliche"} component={InformativaErogazioni} />
+      <Route path={"/privacy-policy"} component={PrivacyPolicy} />
+      <Route path={"/cookie-policy"} component={CookiePolicy} />
       <Route path={"/404"} component={NotFound} />
       <Route component={NotFound} />
     </Switch>
@@ -35,6 +42,7 @@ function App() {
           <Toaster />
           <Router />
           <WhatsAppWidget />
+          <CookieBanner />
         </TooltipProvider>
       </ThemeProvider>
     </ErrorBoundary>

@@ -4,6 +4,7 @@
  */
 import { contactInfo } from "@/lib/data";
 import { Mail, MapPin, Facebook, Instagram, Phone } from "lucide-react";
+import { Link } from "wouter";
 
 export default function Footer() {
   return (
@@ -120,19 +121,32 @@ export default function Footer() {
             className="text-xs text-white/30"
             style={{ fontFamily: "var(--font-body)", fontWeight: 300 }}
           >
-            &copy; {new Date().getFullYear()} Ca' Bianchini. Tutti i diritti riservati.
+            Copyright &copy; {new Date().getFullYear()} Ca' Bianchini – by{" "}
+              <a href="https://performanceflows.com/" target="_blank" rel="noopener noreferrer" className="hover:text-[#C4A265] transition-colors duration-300">Performance Flows</a>
           </p>
-          <a
-            href="#home"
-            onClick={(e) => {
-              e.preventDefault();
-              window.scrollTo({ top: 0, behavior: "smooth" });
-            }}
-            className="text-xs text-white/30 hover:text-[#C4A265] transition-colors duration-300 tracking-[0.15em] uppercase"
-            style={{ fontFamily: "var(--font-body)" }}
-          >
-            Torna su
-          </a>
+          <div className="flex items-center gap-4 flex-wrap justify-center sm:justify-end">
+            <Link
+              href="/privacy-policy"
+              className="text-xs text-white/30 hover:text-[#C4A265] transition-colors duration-300"
+              style={{ fontFamily: "var(--font-body)", fontWeight: 300 }}
+            >
+              Privacy Policy
+            </Link>
+            <Link
+              href="/cookie-policy"
+              className="text-xs text-white/30 hover:text-[#C4A265] transition-colors duration-300"
+              style={{ fontFamily: "var(--font-body)", fontWeight: 300 }}
+            >
+              Cookie Policy
+            </Link>
+            <Link
+              href="/informativa-erogazioni-pubbliche"
+              className="text-xs text-white/30 hover:text-[#C4A265] transition-colors duration-300"
+              style={{ fontFamily: "var(--font-body)", fontWeight: 300 }}
+            >
+              Erogazioni Pubbliche
+            </Link>
+          </div>
         </div>
       </div>
     </footer>

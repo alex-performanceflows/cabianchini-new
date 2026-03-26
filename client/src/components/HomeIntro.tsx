@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 
 export default function HomeIntro() {
   return (
-    <section className="py-14 md:py-14">
+    <section className="pt-14 md:pt-14 pb-0">
       <div className="max-w-3xl mx-auto px-6 text-center">
         <motion.div
           initial={{ opacity: 0, y: 24 }}

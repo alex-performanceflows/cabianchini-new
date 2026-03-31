@@ -141,11 +141,11 @@ export default function ContactSection() {
             {status === "sent" ? (
               <div className="flex flex-col justify-center h-full py-16 text-center">
                 <p className="text-2xl font-light text-[#2C2C2C] mb-3" style={{ fontFamily: "var(--font-heading)" }}>
-                  Richiesta inviata
+                  {t("contact_section.sent_title")}
                 </p>
                 <div className="w-8 h-px bg-[#C4A265] mx-auto mb-4" />
                 <p className="text-[13px] text-[#2C2C2C]/60" style={{ fontFamily: "var(--font-body)", fontWeight: 300 }}>
-                  Ti risponderemo al più presto.
+                  {t("contact_section.sent_subtitle")}
                 </p>
               </div>
             ) : (
@@ -260,7 +260,7 @@ export default function ContactSection() {
 
               {status === "error" && (
                 <p className="text-xs text-red-500 text-center" style={{ fontFamily: "var(--font-body)" }}>
-                  Errore nell'invio. Scrivi direttamente a{" "}
+                  {t("contact_section.error_msg")}{" "}
                   <a href="mailto:info@cabianchini.com" className="underline">info@cabianchini.com</a>.
                 </p>
               )}

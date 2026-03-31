@@ -154,6 +154,9 @@
     "title": "Send a message",
     "subtitle": "Fill in the form for any information request. We will get back to you as soon as possible.",
     "alternativa": "Alternatively write directly to",
+    "sent_title": "Message sent",
+    "sent_subtitle": "We'll get back to you as soon as possible.",
+    "error_msg": "Sending error. Write directly to",
     "form": {
       "nome": "Full name",
       "email": "Email",
@@ -177,6 +180,9 @@
   "contact_section": {
     "label": "Request availability",
     "title": "Let's plan your stay together",
+    "sent_title": "Request sent",
+    "sent_subtitle": "We'll get back to you as soon as possible.",
+    "error_msg": "Sending error. Write directly to",
     "subtitle": "For information or to request apartment availability, contact us by filling in the form or writing to us directly. We will be happy to help you plan your stay at Ca' Bianchini.",
     "form": {
       "nome": "Full name",

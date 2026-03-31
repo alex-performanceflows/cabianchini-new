@@ -220,10 +220,10 @@ export default function Contatti() {
                   <Mail size={20} className="text-[#C4A265]" />
                 </div>
                 <p className="text-[#2C2C2C] font-medium mb-2" style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "1.25rem" }}>
-                  Messaggio inviato
+                  {t("contatti.sent_title")}
                 </p>
                 <p className="text-sm text-[#5a5a5a]" style={{ fontFamily: "'Source Sans 3', sans-serif" }}>
-                  Ti risponderemo al più presto.
+                  {t("contatti.sent_subtitle")}
                 </p>
               </div>
             ) : (
@@ -315,7 +315,7 @@ export default function Contatti() {
 
                 {status === "error" && (
                   <p className="text-xs text-red-500 text-center" style={{ fontFamily: "'Source Sans 3', sans-serif" }}>
-                    Errore nell'invio. Scrivi direttamente a{" "}
+                    {t("contatti.error_msg")}{" "}
                     <a href="mailto:info@cabianchini.com" className="underline">info@cabianchini.com</a>.
                   </p>
                 )}

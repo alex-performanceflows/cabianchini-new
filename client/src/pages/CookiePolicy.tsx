@@ -1,11 +1,23 @@
 /*
  * Cookie Policy — GDPR / Direttiva ePrivacy compliant
  */
+import { useEffect } from "react";
 import { motion } from "framer-motion";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { useLanguage } from "@/hooks/useLanguage";
 
 export default function CookiePolicy() {
+  useLanguage();
+
+  useEffect(() => {
+    document.title = "Cookie Policy — Ca' Bianchini";
+    let el = document.querySelector<HTMLMetaElement>('meta[name="robots"]');
+    if (!el) { el = document.createElement("meta"); el.name = "robots"; document.head.appendChild(el); }
+    el.content = "noindex, nofollow";
+    return () => { el!.content = "index, follow"; };
+  }, []);
+
   return (
     <div className="min-h-screen bg-[#FAFAF7]">
       <Header />

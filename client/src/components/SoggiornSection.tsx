@@ -3,6 +3,7 @@
  * Sezione "Il Soggiorno" — titolo centrato → testo centrato → carosello 2 foto alla volta
  */
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 import {
   Carousel,
   CarouselContent,
@@ -20,6 +21,8 @@ const soggiornSlides = [
 ];
 
 export default function SoggiornSection() {
+  const { t } = useTranslation();
+
   return (
     <section className="py-14 md:py-14">
       <div className="max-w-3xl mx-auto px-6 text-center mb-6">
@@ -33,23 +36,15 @@ export default function SoggiornSection() {
             className="text-3xl md:text-4xl font-light text-[#2C2C2C] leading-[1.15] mb-6"
             style={{ fontFamily: "var(--font-heading)" }}
           >
-            Il soggiorno
+            {t("home.soggiorno.title")}
           </h2>
 
           <div
             className="space-y-3 text-[#2C2C2C]/70 text-[13px] leading-[1.6]"
             style={{ fontFamily: "var(--font-body)", fontWeight: 300 }}
           >
-            <p>
-              A Ca' Bianchini le giornate seguono il ritmo della campagna. La piscina,
-              immersa nel verde, è uno spazio dove fermarsi e godere dell'aria aperta.
-              Intorno si aprono i campi della campagna veneta.
-            </p>
-            <p>
-              Al tramonto la luce cambia colore e, nelle giornate più limpide, lo sguardo
-              arriva fino alle montagne. Un luogo pensato per chi cerca quiete, spazio
-              e contatto autentico con la natura.
-            </p>
+            <p>{t("home.soggiorno.p1")}</p>
+            <p>{t("home.soggiorno.p2")}</p>
           </div>
         </motion.div>
       </div>

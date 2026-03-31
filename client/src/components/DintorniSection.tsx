@@ -4,6 +4,8 @@
  */
 import { motion } from "framer-motion";
 import { Link } from "wouter";
+import { useTranslation } from "react-i18next";
+import { useLanguage } from "@/hooks/useLanguage";
 
 const dintorniSlides = [
   { src: "/images/slider_dintorni/Dintorni_Slider-1.webp", alt: "Dintorni 1" },
@@ -16,6 +18,10 @@ const dintorniSlides = [
 ];
 
 export default function DintorniSection() {
+  const { t } = useTranslation();
+  const lang = useLanguage();
+  const dintorniHref = lang === "en" ? "/en/surroundings" : "/it/dintorni";
+
   return (
     <section id="dintorni" className="bg-[#FAFAF7]">
       {/* Testo centrato */}
@@ -31,29 +37,23 @@ export default function DintorniSection() {
               className="text-3xl md:text-4xl font-light text-[#2C2C2C] leading-[1.15] mb-6"
               style={{ fontFamily: "var(--font-heading)" }}
             >
-              Dintorni
+              {t("home.dintorni.title")}
             </h2>
 
             <div
               className="space-y-3 text-[#2C2C2C]/70 text-[13px] leading-[1.6] mb-8"
               style={{ fontFamily: "var(--font-body)", fontWeight: 300 }}
             >
-              <p>
-                Il territorio che circonda Ca' Bianchini offre molte possibilità di scoperta,
-                tra città d'arte, paesaggi di campagna e percorsi nella natura.
-              </p>
-              <p>
-                La posizione permette di raggiungere facilmente Venezia, le colline del Prosecco
-                e numerosi itinerari da esplorare con calma.
-              </p>
+              <p>{t("home.dintorni.p1")}</p>
+              <p>{t("home.dintorni.p2")}</p>
             </div>
 
             <Link
-              href="/dintorni"
+              href={dintorniHref}
               className="inline-block text-[11px] tracking-[0.2em] uppercase text-[#2C2C2C] border-b border-[#2C2C2C]/40 pb-1 hover:text-[#C4A265] hover:border-[#C4A265] transition-colors duration-300"
               style={{ fontFamily: "var(--font-body)" }}
             >
-              Scopri di più
+              {t("home.dintorni.cta")}
             </Link>
           </motion.div>
         </div>

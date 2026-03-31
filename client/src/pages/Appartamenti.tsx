@@ -3,13 +3,16 @@
  * Hero slider full-page → Intro → Sezioni alternanti foto/testo → Servizi → Footer
  */
 import { useState, useEffect, useCallback } from "react";
+import { useTranslation } from "react-i18next";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight, UtensilsCrossed, Thermometer, Wifi, BedDouble, Droplets, Sparkles, TreePine, ParkingCircle, PlugZap, WashingMachine } from "lucide-react";
 import { Link } from "wouter";
 import Header from "@/components/Header";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
+import SeoHead from "@/components/SeoHead";
 import { apartments } from "@/lib/apartments";
+import { useLanguage } from "@/hooks/useLanguage";
 
 const heroSlides = [
   "/images/slider_appartamenti/Appartamenti_Slider-1.webp",
@@ -101,9 +104,28 @@ function ApartmentSlider({ images, name }: { images: string[]; name: string }) {
 }
 
 export default function Appartamenti() {
+  const { t } = useTranslation();
+  const lang = useLanguage();
+
+  const aptBasePath = lang === "en" ? "/en/apartments" : "/it/appartamenti";
+
+  const services = [
+    { icon: UtensilsCrossed, key: "cucina" },
+    { icon: Thermometer, key: "riscaldamento" },
+    { icon: Wifi, key: "wifi" },
+    { icon: BedDouble, key: "biancheria" },
+    { icon: Droplets, key: "asciugamani" },
+    { icon: Sparkles, key: "cortesia" },
+    { icon: TreePine, key: "esterni" },
+    { icon: ParkingCircle, key: "parcheggio" },
+    { icon: PlugZap, key: "ricarica" },
+    { icon: WashingMachine, key: "lavanderia" },
+  ];
+
   return (
     <div className="min-h-screen bg-[#FAFAF7]">
       <Header />
+      <SeoHead page="appartamenti" />
       <HeroSlider />
 
       {/* Intro centrato */}
@@ -111,11 +133,11 @@ export default function Appartamenti() {
         <div className="max-w-3xl mx-auto px-6 text-center">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
             <h1 className="text-3xl md:text-4xl font-light text-[#2C2C2C] leading-[1.15] mb-6" style={{ fontFamily: "var(--font-heading)" }}>
-              Gli appartamenti
+              {t("appartamenti.heroTitle")}
             </h1>
             <div className="space-y-3 text-[#2C2C2C]/70 text-[13px] leading-[1.6]" style={{ fontFamily: "var(--font-body)", fontWeight: 300 }}>
-              <p>Ca' Bianchini dispone di cinque appartamenti indipendenti, ognuno con ingresso autonomo e spazi propri. Sono pensati per famiglie o gruppi di amici che vogliono vivere la campagna veneta con autonomia e tranquillità.</p>
-              <p>Gli ambienti sono luminosi e curati, arredati con semplicità e attenzione al dettaglio. Ogni appartamento è dotato di cucina attrezzata, zona giorno e camere da letto confortevoli.</p>
+              <p>{t("appartamenti.p1")}</p>
+              <p>{t("appartamenti.p2")}</p>
             </div>
           </motion.div>
         </div>
@@ -136,7 +158,7 @@ export default function Appartamenti() {
               <div className={`grid lg:grid-cols-2 ${isEven ? "" : "lg:[direction:rtl]"}`}>
                 {/* Foto slider — cliccabile per aprire dettaglio */}
                 <Link
-                  href={`/appartamenti/${apt.id}`}
+                  href={`${aptBasePath}/${apt.id}`}
                   className={`block cursor-pointer ${isEven ? "" : "lg:[direction:ltr]"}`}
                 >
                   <ApartmentSlider images={apt.images.slice(0, 5)} name={apt.name} />
@@ -165,11 +187,11 @@ export default function Appartamenti() {
 
                   <div className="flex flex-wrap gap-3">
                     <Link
-                      href={`/appartamenti/${apt.id}`}
+                      href={`${aptBasePath}/${apt.id}`}
                       className="text-xs tracking-[0.2em] uppercase border border-[#2C2C2C] text-[#2C2C2C] px-6 py-2.5 hover:bg-[#2C2C2C] hover:text-white transition-all duration-300"
                       style={{ fontFamily: "var(--font-body)" }}
                     >
-                      Scopri di più
+                      {t("appartamenti.cta")}
                     </Link>
                     <button
                       onClick={() => {
@@ -179,7 +201,7 @@ export default function Appartamenti() {
                       className="text-xs tracking-[0.2em] uppercase border border-[#C4A265] text-[#C4A265] px-6 py-2.5 hover:bg-[#C4A265] hover:text-white transition-all duration-300"
                       style={{ fontFamily: "var(--font-body)" }}
                     >
-                      Prenota
+                      {t("nav.prenota")}
                     </button>
                   </div>
                 </div>
@@ -193,33 +215,42 @@ export default function Appartamenti() {
       <section className="py-14 md:py-14 bg-[#F5F3EE] mt-0">
         <div className="max-w-5xl mx-auto px-6 lg:px-10">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="text-center mb-6">
-            <p className="text-[11px] tracking-[0.3em] uppercase text-[#C4A265] mb-4" style={{ fontFamily: "var(--font-body)" }}>Inclusi nel soggiorno</p>
-            <h2 className="text-3xl md:text-4xl font-light text-[#2C2C2C]" style={{ fontFamily: "var(--font-heading)" }}>Servizi ed info</h2>
+            <p className="text-[11px] tracking-[0.3em] uppercase text-[#C4A265] mb-4" style={{ fontFamily: "var(--font-body)" }}>
+              {t("appartamenti.detail.servizi_subtitle")}
+            </p>
+            <h2 className="text-3xl md:text-4xl font-light text-[#2C2C2C]" style={{ fontFamily: "var(--font-heading)" }}>
+              {t("appartamenti.detail.servizi_title")}
+            </h2>
             <div className="w-10 h-px bg-[#C4A265] mx-auto mt-6" />
           </motion.div>
           <div className="grid grid-cols-2 md:grid-cols-5 gap-x-6 gap-y-10 md:gap-y-14">
-            {[
-              { icon: UtensilsCrossed, label: "Cucina attrezzata" },
-              { icon: Thermometer, label: "Riscaldamento e raffrescamento" },
-              { icon: Wifi, label: "Wi-Fi" },
-              { icon: BedDouble, label: "Biancheria da letto e da bagno" },
-              { icon: Droplets, label: "Asciugamani per piscina" },
-              { icon: Sparkles, label: "Set di cortesia" },
-              { icon: TreePine, label: "Spazi esterni con tavolino" },
-              { icon: ParkingCircle, label: "Parcheggio interno" },
-              { icon: PlugZap, label: "Ricarica auto elettriche" },
-              { icon: WashingMachine, label: "Lavanderia" },
-            ].map((service, i) => (
-              <motion.div key={service.label} initial={{ opacity: 0, y: 15 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4, delay: i * 0.05 }} className="flex flex-col items-center text-center group">
+            {services.map((service, i) => (
+              <motion.div
+                key={service.key}
+                initial={{ opacity: 0, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: i * 0.05 }}
+                className="flex flex-col items-center text-center group"
+              >
                 <div className="w-12 h-12 flex items-center justify-center mb-3">
                   <service.icon size={22} strokeWidth={1.2} className="text-[#C4A265] group-hover:scale-110 transition-transform duration-300" />
                 </div>
-                <span className="text-[12px] leading-[1.4] tracking-[0.04em] text-[#2C2C2C]/65" style={{ fontFamily: "var(--font-body)", fontWeight: 300 }}>{service.label}</span>
+                <span className="text-[12px] leading-[1.4] tracking-[0.04em] text-[#2C2C2C]/65" style={{ fontFamily: "var(--font-body)", fontWeight: 300 }}>
+                  {t(`appartamenti.services.${service.key}`)}
+                </span>
               </motion.div>
             ))}
           </div>
-          <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.3 }} className="text-center text-[11px] text-[#2C2C2C]/40 mt-14 tracking-wide" style={{ fontFamily: "var(--font-body)" }}>
-            Sistema di climatizzazione a pompe di calore (senza aria condizionata) · Lavanderia a uso comune
+          <motion.p
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+            className="text-center text-[11px] text-[#2C2C2C]/40 mt-14 tracking-wide"
+            style={{ fontFamily: "var(--font-body)" }}
+          >
+            {t("appartamenti.note")}
           </motion.p>
         </div>
       </section>

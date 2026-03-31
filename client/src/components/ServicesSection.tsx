@@ -18,7 +18,7 @@ const includedServices = [
 ];
 
 const paidServices = [
-  "Lavanderia (servizio comune)",
+  "Lavanderia in comune",
   "Cambio biancheria extra",
 ];
 

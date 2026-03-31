@@ -91,12 +91,7 @@ export const apartments: Apartment[] = [
     bathrooms: 2,
     description: "Villa Arzilla si sviluppa su due livelli e dispone di bagno attrezzato per persone con disabilità motoria. Ambienti luminosi con accesso agli spazi esterni sul retro.",
     features: ["Accessibile disabili", "Spazi esterni sul retro", "Balcone condiviso", "Due livelli", "Riscaldamento/raffrescamento"],
-    images: [
-      `${CDN}/arzilla_1_6c095749.jpg`,
-      `${CDN}/arzilla_2_494d31d5.jpg`,
-      `${CDN}/arzilla_3_2af39eae.jpg`,
-      `${CDN}/arzilla_4_387b7a5b.jpg`,
-    ],
+    images: Array.from({ length: 10 }, (_, i) => `/images/villa-arzilla/Villa-Arzilla_Slider-${i + 1}.webp`),
     petsAllowed: true,
     disabledAccess: true,
   },
@@ -166,7 +161,7 @@ export const services = [
   "Spazi esterni con tavolino",
   "Parcheggio interno alla struttura",
   "Colonnina di ricarica per auto elettriche",
-  "Lavanderia (servizio comune)",
+  "Lavanderia in comune",
 ];
 
 export const contactInfo = {

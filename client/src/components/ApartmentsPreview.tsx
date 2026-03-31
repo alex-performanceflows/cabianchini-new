@@ -6,8 +6,14 @@
  */
 import { motion } from "framer-motion";
 import { Link } from "wouter";
+import { useTranslation } from "react-i18next";
+import { useLanguage } from "@/hooks/useLanguage";
 
 export default function ApartmentsPreview() {
+  const { t } = useTranslation();
+  const lang = useLanguage();
+  const aptHref = lang === "en" ? "/en/apartments" : "/it/appartamenti";
+
   return (
     <section className="py-14 md:py-14 bg-[#F5F3EE]">
       <div className="max-w-3xl mx-auto px-6 text-center">
@@ -21,36 +27,25 @@ export default function ApartmentsPreview() {
             className="text-3xl md:text-4xl font-light text-[#2C2C2C] leading-[1.15] mb-6"
             style={{ fontFamily: "var(--font-heading)" }}
           >
-            Gli appartamenti
+            {t("home.apartments.title")}
           </h2>
 
           <div
             className="space-y-3 text-[#2C2C2C]/70 text-[13px] leading-[1.6] mb-8"
             style={{ fontFamily: "var(--font-body)", fontWeight: 300 }}
           >
-            <p>
-              Ca' Bianchini dispone di cinque appartamenti indipendenti, ognuno con ingresso
-              autonomo e spazi propri. Sono pensati per famiglie o gruppi di amici che vogliono
-              vivere la campagna veneta con autonomia e tranquillità.
-            </p>
-            <p>
-              Gli ambienti sono luminosi e curati, arredati con semplicità e attenzione al
-              dettaglio. Ogni appartamento è dotato di cucina attrezzata, zona giorno e camere
-              da letto confortevoli.
-            </p>
-            <p>
-              La proprietà è immersa nel verde e dispone di una piscina condivisa, parcheggio
-              privato e ampi spazi all'aperto dove rilassarsi durante il soggiorno.
-            </p>
+            <p>{t("home.apartments.p1")}</p>
+            <p>{t("home.apartments.p2")}</p>
+            <p>{t("home.apartments.p3")}</p>
           </div>
 
           {/* CTA */}
-          <Link href="/appartamenti">
+          <Link href={aptHref}>
             <span
               className="inline-block text-xs tracking-[0.3em] uppercase text-[#2C2C2C] border-b border-[#2C2C2C] pb-0.5 hover:text-[#C4A265] hover:border-[#C4A265] transition-colors duration-300 cursor-pointer"
               style={{ fontFamily: "var(--font-body)" }}
             >
-              Scopri di più
+              {t("home.apartments.cta")}
             </span>
           </Link>
         </motion.div>

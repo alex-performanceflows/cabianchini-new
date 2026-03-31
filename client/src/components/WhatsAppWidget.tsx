@@ -1,5 +1,5 @@
 /*
- * Widget WhatsApp floating — colore dorato #C4A265
+ * Widget WhatsApp floating — colore rosso logo #8B1A1A
  * Posizionato in basso a destra su tutte le pagine
  */
 export default function WhatsAppWidget() {

@@ -1,0 +1,240 @@
+{
+  "nav": {
+    "menu": "Menu",
+    "prenota": "Book",
+    "appartamenti": "Apartments",
+    "dintorni": "Surroundings",
+    "posizione": "Location",
+    "contatti": "Contact"
+  },
+  "home": {
+    "intro": {
+      "title": "Ca' Bianchini",
+      "p1": "Nestled in the Venetian countryside, Ca' Bianchini is a farmhouse with independent apartments, situated within an agricultural estate that has belonged to our family for generations. Here the land is still tended with care and respect for its natural rhythms.",
+      "p2": "The farmhouse has been restored while preserving its simplicity and original structure, opening it to hospitality. The five independent apartments offer bright, welcoming spaces designed for a comfortable and autonomous stay.",
+      "p3": "Days unfold between fields and nature. The pool, surrounded by greenery, is a place to pause and enjoy the open air. The location makes it easy to reach Treviso, Venice and the Prosecco hills, before returning to a peaceful and authentic setting.",
+      "quote": "We welcome those who choose nature and share its respect."
+    },
+    "apartments": {
+      "title": "The apartments",
+      "p1": "Ca' Bianchini offers five independent apartments, each with its own entrance and private spaces. Designed for families or groups of friends who want to experience the Venetian countryside with freedom and tranquillity.",
+      "p2": "The interiors are bright and thoughtfully furnished, with simplicity and attention to detail. Each apartment is equipped with a fully fitted kitchen, living area and comfortable bedrooms.",
+      "p3": "The property is surrounded by greenery and features a shared pool, private parking and generous outdoor spaces to relax during your stay.",
+      "cta": "Discover more"
+    },
+    "soggiorno": {
+      "title": "Your stay",
+      "p1": "At Ca' Bianchini, days follow the rhythm of the countryside. The pool, surrounded by greenery, is a place to stop and enjoy the fresh air. Around it, the fields of the Venetian countryside open up.",
+      "p2": "At sunset the light changes colour and, on the clearest days, the gaze reaches as far as the mountains. A place for those seeking quiet, space and authentic contact with nature."
+    },
+    "dintorni": {
+      "title": "Surroundings",
+      "p1": "The area surrounding Ca' Bianchini offers many opportunities for discovery, from art cities to countryside landscapes and nature trails.",
+      "p2": "The location makes it easy to reach Venice, the Prosecco hills and numerous itineraries to explore at a leisurely pace.",
+      "cta": "Discover more"
+    }
+  },
+  "appartamenti": {
+    "heroTitle": "The apartments",
+    "title": "The apartments",
+    "subtitle": "Five independent apartments",
+    "p1": "Ca' Bianchini offers five independent apartments, each with its own entrance and private spaces. Designed for families or groups of friends who want to experience the Venetian countryside with freedom and tranquillity.",
+    "p2": "The interiors are bright and thoughtfully furnished, with simplicity and attention to detail. Each apartment is equipped with a fully fitted kitchen, living area and comfortable bedrooms.",
+    "p3": "The property is surrounded by greenery and features a shared pool, private parking and generous outdoor spaces to relax during your stay.",
+    "cta": "Discover more",
+    "services": {
+      "title": "Included services",
+      "cucina": "Fully equipped kitchen",
+      "riscaldamento": "Heating and cooling system",
+      "wifi": "Wi-Fi",
+      "biancheria": "Bed and bath linen",
+      "asciugamani": "Pool towels",
+      "cortesia": "Courtesy kit",
+      "esterni": "Outdoor space with table",
+      "parcheggio": "Private parking",
+      "ricarica": "Electric car charging",
+      "lavanderia": "Shared laundry"
+    },
+    "detail": {
+      "persone": "guests",
+      "fino_a": "Up to",
+      "mq": "m²",
+      "camere": "bedrooms",
+      "bagni": "bathrooms",
+      "prenota": "Book",
+      "servizi_title": "Services & info",
+      "servizi_subtitle": "Included in your stay",
+      "animali": "Pets allowed",
+      "disabili": "Wheelchair accessible",
+      "altri_title": "Explore other apartments",
+      "dettagli": "Details",
+      "floorplan": "Floor plan"
+    },
+    "note": "Heat pump climate control system (no air conditioning) · Shared laundry"
+  },
+  "dintorni": {
+    "heroTitle": "Surroundings",
+    "title": "Surroundings",
+    "intro_p1": "The area surrounding Ca' Bianchini offers many opportunities for discovery, from art cities to natural landscapes and outdoor trails. The location is ideal for those who want to enjoy the tranquillity of the Venetian countryside while being able to easily reach Venice, the Prosecco hills, the Dolomites and the Palladian villas.",
+    "sections": {
+      "treviso": {
+        "title": "Treviso",
+        "subtitle": "The city of frescoes and canals",
+        "p1": "Treviso is a charming art city, often overlooked by the main tourist circuits. Its medieval walls, canals and lively piazzas make it a pleasant destination to explore on foot or by bicycle.",
+        "p2": "The historic centre is rich in frescoed churches, including the Cathedral and the Church of San Nicolò. The covered market, historic cafés and local gastronomic tradition complete the experience."
+      },
+      "venezia": {
+        "title": "Venice",
+        "subtitle": "A step from the lagoon",
+        "p1": "Venice is easily reachable and is one of the most fascinating destinations in the area. A day spent among calli, bridges and historic palaces allows you to discover one of the most unique places in the world."
+      },
+      "prosecco": {
+        "title": "The Prosecco Hills",
+        "subtitle": "UNESCO World Heritage Site",
+        "p1": "To the north stretch the Prosecco hills, a UNESCO World Heritage Site, characterised by vineyards, small villages and open panoramas.",
+        "p2": "The roads through the vineyards offer ideal routes for walks and wine tastings at local wineries."
+      },
+      "dolomiti": {
+        "title": "The Dolomites",
+        "subtitle": "UNESCO Natural World Heritage",
+        "p1": "The Dolomites are reachable in about an hour and a half and offer some of the most spectacular mountain scenery in Europe, both in summer and winter."
+      },
+      "ville": {
+        "title": "The Venetian Villas",
+        "subtitle": "Palladian architecture",
+        "p1": "The area is rich in historic Venetian villas, testimony to the culture and architecture of the Republic of Venice. Many of these estates are open to visitors and offer gardens, frescoes and environments linked to the history of the Venetian countryside.",
+        "p2": "Among the most celebrated are Villa Tiepolo Passi, a few minutes from Ca' Bianchini, and Villa Barbaro in Maser, a Palladian masterpiece decorated with frescoes by Paolo Veronese."
+      },
+      "natura": {
+        "title": "Nature & trails",
+        "subtitle": "Itineraries through fields and rivers",
+        "p1": "The area offers numerous trails through nature, ideal for walks and cycling.",
+        "p2": "The Sile Cycle Path allows you to cycle along the river all the way to Treviso. The routes through fields and vineyards offer typical views of the Venetian countryside.",
+        "p3": "The Sile River Natural Park, a few minutes from Ca' Bianchini, is a protected area ideal for nature walks."
+      },
+      "montagne": {
+        "title": "The mountains",
+        "subtitle": "A step from the Dolomites",
+        "p1": "The mountains of the Treviso and Belluno areas offer scenery of great beauty, with historic villages, alpine lakes and hiking routes for all levels.",
+        "p2": "In winter, the ski resorts of the Dolomites are comfortably reachable in a day trip."
+      }
+    }
+  },
+  "posizione": {
+    "heroTitle": "How to reach us",
+    "title": "How to reach us",
+    "intro_title": "Where we are",
+    "intro_p1": "Ca' Bianchini is located in Lanzago di Silea, in the province of Treviso, surrounded by the Venetian countryside. The location is ideal for those who want to enjoy rural tranquillity while being able to easily reach Venice, the Prosecco hills, the Dolomites and the Palladian villas.",
+    "address_label": "Address",
+    "partenza_label": "Starting from:",
+    "partenza_placeholder": "Enter your city of departure",
+    "mostra_percorso": "Show route",
+    "apri_maps": "Open in Google Maps",
+    "transport_title": "Getting here",
+    "auto": {
+      "title": "By car",
+      "content": "From the A27 motorway (Venice–Belluno), exit at Treviso Sud. Follow signs for Silea/Lanzago. Via Bianchini, 10.\n\nYou can use Google Maps for directions from your location."
+    },
+    "treno": {
+      "title": "By train",
+      "content": "Treviso Central Station (10 km). From there you can reach Ca' Bianchini by taxi or rental car.\n\nWe warmly recommend all our guests to enjoy the tranquil atmosphere of the Venetian countryside."
+    },
+    "aereo": {
+      "title": "By plane",
+      "content": "Venice Marco Polo Airport (30 km) — closest and most convenient.\nTreviso Antonio Canova Airport (15 km) — served by low-cost carriers."
+    },
+    "bici": {
+      "title": "By bicycle",
+      "content": "Reachable by bicycle in 15 minutes or on foot in about 40 minutes.\n\nWe partner with Treviso Bike for bicycle rental."
+    }
+  },
+  "contatti": {
+    "heroTitle": "Contact",
+    "scrivici": "Write to us",
+    "title": "Send a message",
+    "subtitle": "Fill in the form for any information request. We will get back to you as soon as possible.",
+    "alternativa": "Alternatively write directly to",
+    "form": {
+      "nome": "Full name",
+      "email": "Email",
+      "telefono": "Phone",
+      "appartamento": "Apartment",
+      "checkin": "Check-in",
+      "checkout": "Check-out",
+      "ospiti": "Number of guests",
+      "messaggio": "Message",
+      "messaggio_placeholder": "Write your requests or questions here...",
+      "invia": "Send message",
+      "tutti": "All",
+      "nome_placeholder": "John Smith",
+      "email_placeholder": "john@email.com",
+      "telefono_placeholder": "+39 000 0000000",
+      "ospiti_placeholder": "2"
+    },
+    "apri_maps": "Open in Google Maps →",
+    "servizi_extra": "We partner with {{bike}} for bicycle rental and with a private taxi service for your transfers — Antonio {{telefono}}."
+  },
+  "contact_section": {
+    "label": "Request availability",
+    "title": "Let's plan your stay together",
+    "subtitle": "For information or to request apartment availability, contact us by filling in the form or writing to us directly. We will be happy to help you plan your stay at Ca' Bianchini.",
+    "form": {
+      "nome": "Full name",
+      "email": "Email",
+      "telefono": "Phone",
+      "appartamento": "Apartment",
+      "checkin": "Check-in",
+      "checkout": "Check-out",
+      "ospiti": "Number of guests",
+      "messaggio": "Message",
+      "messaggio_placeholder": "Write your requests or questions here...",
+      "invia": "Send request",
+      "tutti": "All",
+      "nome_placeholder": "John Smith",
+      "email_placeholder": "john@email.com",
+      "telefono_placeholder": "+39 000 0000000",
+      "ospiti_placeholder": "2"
+    },
+    "servizi_extra": "We partner with <bike>Treviso Bike</bike> for bicycle rental and with a private taxi service for your transfers — Antonio <tel>347 305 9916</tel>."
+  },
+  "footer": {
+    "tagline": "Farmhouse surrounded by the greenery of the Treviso countryside, a few minutes from the historic centre of Treviso.",
+    "contatti": "Contact",
+    "seguici": "Follow us",
+    "copyright": "Copyright © {{year}} Ca' Bianchini – by",
+    "privacy": "Privacy Policy",
+    "cookie": "Cookie Policy",
+    "erogazioni": "Public Grants",
+    "lang_it": "IT",
+    "lang_en": "EN"
+  },
+  "cookie_banner": {
+    "title": "We use cookies",
+    "text": "This site uses technical cookies necessary for its operation and, with your consent, analytical cookies (Google Analytics) to improve the browsing experience.",
+    "accetta": "Accept all",
+    "rifiuta": "Necessary only",
+    "scopri": "Learn more"
+  },
+  "seo": {
+    "home": {
+      "title": "Ca' Bianchini — Farmhouse in Treviso with independent apartments",
+      "description": "Farmhouse with 5 independent apartments nestled in the Venetian countryside in Lanzago di Silea (Treviso). Shared pool, private parking and EV charging. Near Venice and the Prosecco hills."
+    },
+    "appartamenti": {
+      "title": "Apartments — Ca' Bianchini Farmhouse Treviso",
+      "description": "Five independent apartments with fully equipped kitchens, Wi-Fi and shared pool. Ideal for families and groups. Ca' Bianchini, Lanzago di Silea (TV)."
+    },
+    "dintorni": {
+      "title": "Surroundings — Ca' Bianchini Farmhouse Treviso",
+      "description": "Discover the surroundings of Ca' Bianchini: Treviso, Venice, the UNESCO Prosecco hills, the Dolomites, Palladian villas and the Sile cycle path."
+    },
+    "posizione": {
+      "title": "How to reach us — Ca' Bianchini Farmhouse Treviso",
+      "description": "Ca' Bianchini is located in Lanzago di Silea (TV), near Treviso and Venice. Directions by car, train and plane to reach our farmhouse."
+    },
+    "contatti": {
+      "title": "Contact & bookings — Ca' Bianchini Farmhouse Treviso",
+      "description": "Contact us for information and availability. Ca' Bianchini Farmhouse, Via Bianchini 10, Lanzago di Silea (TV). info@cabianchini.com"
+    }
+  }
+}

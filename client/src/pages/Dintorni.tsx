@@ -3,11 +3,14 @@
  * Hero slider full-page → intro centrato → sezioni alternanti (foto/slider sx + testo dx)
  */
 import { useState, useEffect, useCallback } from "react";
+import { useTranslation } from "react-i18next";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import Header from "@/components/Header";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
+import SeoHead from "@/components/SeoHead";
+import { useLanguage } from "@/hooks/useLanguage";
 
 const heroSlides = [
   "/images/slider_dintorni/Dintorni_Slider-1.webp",
@@ -18,93 +21,6 @@ const heroSlides = [
   "/images/slider_dintorni/Dintorni_Slider-6.webp",
   "/images/slider_dintorni/Dintorni_Slider-7.webp",
   "/images/dintorni/Montagne-1.webp",
-];
-
-interface Section {
-  title: string;
-  paragraphs: string[];
-  images: string[];
-}
-
-const sections: Section[] = [
-  {
-    title: "Treviso",
-    paragraphs: [
-      "A pochi minuti da Ca' Bianchini si trova il centro storico di Treviso, con i suoi portici, i canali e le piazze animate. Una città elegante e vivibile, ideale per una passeggiata tra negozi, caffè e ristoranti.",
-    ],
-    images: [
-      "/images/dintorni/treviso/Treviso-1.webp",
-      "/images/dintorni/treviso/Treviso-2.webp",
-      "/images/dintorni/treviso/Treviso-3.webp",
-    ],
-  },
-  {
-    title: "Venezia",
-    paragraphs: [
-      "Venezia è facilmente raggiungibile e rappresenta una delle mete più affascinanti del territorio. Una giornata tra calli, ponti e palazzi storici permette di scoprire uno dei luoghi più unici al mondo.",
-    ],
-    images: [
-      "/images/dintorni/venezia/Venezia-1.webp",
-      "/images/dintorni/venezia/Venezia-2.webp",
-      "/images/dintorni/venezia/Venezia-3.webp",
-      "/images/dintorni/venezia/Venezia-4.webp",
-    ],
-  },
-  {
-    title: "Le colline del Prosecco",
-    paragraphs: [
-      "Verso nord si estendono le colline del Prosecco, patrimonio UNESCO, caratterizzate da vigneti, piccoli borghi e panorami aperti.",
-    ],
-    images: [
-      "/images/dintorni/Prosecco_Pieve.webp",
-      "/images/dintorni/Colline-Prosecco-3.webp",
-      "/images/dintorni/colline-prosecco/Colline-Prosecco-1.webp",
-    ],
-  },
-  {
-    title: "Le ville venete",
-    paragraphs: [
-      "Il territorio è ricco di ville venete storiche, testimonianza della cultura e dell'architettura della Repubblica di Venezia. Molte di queste dimore sono visitabili e permettono di scoprire giardini, affreschi e ambienti legati alla storia della campagna veneta.",
-      "Tra le più celebri si trovano Villa Tiepolo Passi, a pochi minuti da Ca' Bianchini, e Villa Barbaro a Maser, capolavoro palladiano decorato dagli affreschi di Paolo Veronese.",
-    ],
-    images: [
-      "/images/dintorni/ville-venete/Ville-Venete-1.webp",
-      "/images/dintorni/ville-venete/Ville-Venete-2.webp",
-      "/images/dintorni/ville-venete/Ville-Venete-3.webp",
-    ],
-  },
-  {
-    title: "Le montagne",
-    paragraphs: [
-      "Nelle giornate più limpide le montagne sono visibili anche dalla campagna che circonda Ca' Bianchini. Le Prealpi e le Dolomiti si raggiungono facilmente e offrono numerose possibilità di escursioni e gite nella natura.",
-    ],
-    images: [
-      "/images/dintorni/Montagne-1.webp",
-      "/images/dintorni/Montagne-2.webp",
-      "/images/dintorni/Montagne-3.webp",
-      "/images/dintorni/Montagne-4.webp",
-      "/images/dintorni/montagne/Montagne-1.webp",
-      "/images/dintorni/montagne/Montagne-2.webp",
-    ],
-  },
-  {
-    title: "Natura e percorsi",
-    paragraphs: [
-      "Il territorio offre numerosi percorsi immersi nella natura, ideali per passeggiate e giri in bicicletta.",
-      "Da Treviso parte la Restera del Sile, un percorso lungo il fiume che arriva fino alla laguna di Jesolo. Poco distante si trova anche la Via Ostiglia, una pista ciclabile che attraversa la campagna tra Veneto e Lombardia.",
-      "Per chi ama percorsi più panoramici, è possibile raggiungere le colline del Prosecco o il Montello, con itinerari tra vigneti, boschi e piccoli borghi.",
-    ],
-    images: [
-      "/images/dintorni/Ciclovia-Sile-1.webp",
-      "/images/dintorni/Ciclovia-Sile-2.webp",
-      "/images/dintorni/natura-percorsi/Natura-Percorsi-1.webp",
-      "/images/dintorni/natura-percorsi/Natura-Percorsi-2.webp",
-      "/images/dintorni/natura-percorsi/Natura-Percorsi-3.webp",
-      "/images/dintorni/natura-percorsi/Natura-Percorsi-4.webp",
-      "/images/dintorni/natura-percorsi/Natura-Percorsi-5.webp",
-      "/images/dintorni/natura-percorsi/Natura-Percorsi-6.webp",
-    ],
-  },
 ];
 
 /* Mini slider per sezioni con più foto */
@@ -239,9 +155,80 @@ function HeroSlider() {
 }
 
 export default function Dintorni() {
+  const { t } = useTranslation();
+  useLanguage();
+
+  // Build sections from translation keys, keeping original image arrays
+  const sectionDefs = [
+    {
+      key: "treviso",
+      paragraphKeys: ["p1", "p2"],
+      images: [
+        "/images/dintorni/treviso/Treviso-1.webp",
+        "/images/dintorni/treviso/Treviso-2.webp",
+        "/images/dintorni/treviso/Treviso-3.webp",
+      ],
+    },
+    {
+      key: "venezia",
+      paragraphKeys: ["p1"],
+      images: [
+        "/images/dintorni/venezia/Venezia-1.webp",
+        "/images/dintorni/venezia/Venezia-2.webp",
+        "/images/dintorni/venezia/Venezia-3.webp",
+        "/images/dintorni/venezia/Venezia-4.webp",
+      ],
+    },
+    {
+      key: "prosecco",
+      paragraphKeys: ["p1", "p2"],
+      images: [
+        "/images/dintorni/Prosecco_Pieve.webp",
+        "/images/dintorni/Colline-Prosecco-3.webp",
+        "/images/dintorni/colline-prosecco/Colline-Prosecco-1.webp",
+      ],
+    },
+    {
+      key: "ville",
+      paragraphKeys: ["p1", "p2"],
+      images: [
+        "/images/dintorni/ville-venete/Ville-Venete-1.webp",
+        "/images/dintorni/ville-venete/Ville-Venete-2.webp",
+        "/images/dintorni/ville-venete/Ville-Venete-3.webp",
+      ],
+    },
+    {
+      key: "montagne",
+      paragraphKeys: ["p1", "p2"],
+      images: [
+        "/images/dintorni/Montagne-1.webp",
+        "/images/dintorni/Montagne-2.webp",
+        "/images/dintorni/Montagne-3.webp",
+        "/images/dintorni/Montagne-4.webp",
+        "/images/dintorni/montagne/Montagne-1.webp",
+        "/images/dintorni/montagne/Montagne-2.webp",
+      ],
+    },
+    {
+      key: "natura",
+      paragraphKeys: ["p1", "p2", "p3"],
+      images: [
+        "/images/dintorni/Ciclovia-Sile-1.webp",
+        "/images/dintorni/Ciclovia-Sile-2.webp",
+        "/images/dintorni/natura-percorsi/Natura-Percorsi-1.webp",
+        "/images/dintorni/natura-percorsi/Natura-Percorsi-2.webp",
+        "/images/dintorni/natura-percorsi/Natura-Percorsi-3.webp",
+        "/images/dintorni/natura-percorsi/Natura-Percorsi-4.webp",
+        "/images/dintorni/natura-percorsi/Natura-Percorsi-5.webp",
+        "/images/dintorni/natura-percorsi/Natura-Percorsi-6.webp",
+      ],
+    },
+  ];
+
   return (
     <div className="min-h-screen bg-[#FAFAF7]">
       <Header />
+      <SeoHead page="dintorni" />
 
       {/* Hero full-page slider */}
       <HeroSlider />
@@ -258,31 +245,25 @@ export default function Dintorni() {
               className="text-3xl md:text-4xl font-light text-[#2C2C2C] leading-[1.15] mb-6"
               style={{ fontFamily: "var(--font-heading)" }}
             >
-              I dintorni
+              {t("dintorni.heroTitle")}
             </h1>
             <div
               className="space-y-3 text-[#2C2C2C]/70 text-[13px] leading-[1.6]"
               style={{ fontFamily: "var(--font-body)", fontWeight: 300 }}
             >
-              <p>
-                Il territorio che circonda Ca' Bianchini offre molte possibilità di scoperta,
-                tra città d'arte, paesaggi di campagna e percorsi nella natura.
-              </p>
-              <p>
-                La posizione permette di raggiungere facilmente Venezia, le colline del Prosecco
-                e numerosi itinerari da esplorare con calma.
-              </p>
+              <p>{t("dintorni.intro_p1")}</p>
             </div>
           </motion.div>
         </div>
       </div>
 
       {/* Sezioni alternanti: foto/slider + testo — centrate con margini */}
-      {sections.map((section, idx) => {
+      {sectionDefs.map((s, idx) => {
         const isEven = idx % 2 === 0;
+        const sectionTitle = t(`dintorni.sections.${s.key}.title`);
         return (
           <motion.section
-            key={section.title}
+            key={s.key}
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-60px" }}
@@ -293,12 +274,12 @@ export default function Dintorni() {
               <div className={`grid lg:grid-cols-2 ${isEven ? "" : "lg:[direction:rtl]"}`}>
                 {/* Foto o Slider */}
                 <div className={`relative h-[350px] md:h-[450px] lg:h-[550px] overflow-hidden ${isEven ? "" : "lg:[direction:ltr]"}`}>
-                  {section.images.length > 1 ? (
-                    <SectionSlider images={section.images} title={section.title} />
+                  {s.images.length > 1 ? (
+                    <SectionSlider images={s.images} title={sectionTitle} />
                   ) : (
                     <img
-                      src={section.images[0]}
-                      alt={section.title}
+                      src={s.images[0]}
+                      alt={sectionTitle}
                       className="w-full h-full object-cover"
                     />
                   )}
@@ -310,14 +291,14 @@ export default function Dintorni() {
                     className="text-2xl md:text-3xl font-light text-[#2C2C2C] leading-[1.15] mb-5"
                     style={{ fontFamily: "var(--font-heading)" }}
                   >
-                    {section.title}
+                    {sectionTitle}
                   </h2>
                   <div
                     className="space-y-3 text-[#2C2C2C]/70 text-[13px] leading-[1.6]"
                     style={{ fontFamily: "var(--font-body)", fontWeight: 300 }}
                   >
-                    {section.paragraphs.map((p, i) => (
-                      <p key={i}>{p}</p>
+                    {s.paragraphKeys.map((pk) => (
+                      <p key={pk}>{t(`dintorni.sections.${s.key}.${pk}`)}</p>
                     ))}
                   </div>
                 </div>

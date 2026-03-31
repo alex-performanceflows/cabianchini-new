@@ -3,13 +3,16 @@
  * Hero slider full-page → Nome + info → Descrizione → Servizi → Prenota
  */
 import { useState, useEffect, useCallback } from "react";
+import { useTranslation } from "react-i18next";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight, Accessibility, UtensilsCrossed, Thermometer, Wifi, BedDouble, Droplets, Sparkles, TreePine, ParkingCircle, PlugZap, WashingMachine, Users, Maximize, Bath } from "lucide-react";
 import { useParams, Link } from "wouter";
 import Header from "@/components/Header";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
+import SeoHead from "@/components/SeoHead";
 import { apartments } from "@/lib/apartments";
+import { useLanguage } from "@/hooks/useLanguage";
 
 function DetailHeroSlider({ images, name }: { images: string[]; name: string }) {
   const [current, setCurrent] = useState(0);
@@ -55,9 +58,11 @@ function DetailHeroSlider({ images, name }: { images: string[]; name: string }) 
   );
 }
 
-function OtherApartments({ currentId }: { currentId: string }) {
+function OtherApartments({ currentId, lang }: { currentId: string; lang: string }) {
+  const { t } = useTranslation();
   const others = apartments.filter((a) => a.id !== currentId);
   const [scrollRef, setScrollRef] = useState<HTMLDivElement | null>(null);
+  const aptBasePath = lang === "en" ? "/en/apartments" : "/it/appartamenti";
 
   const scrollBy = (dir: number) => {
     if (!scrollRef) return;
@@ -68,17 +73,23 @@ function OtherApartments({ currentId }: { currentId: string }) {
   return (
     <section className="py-14 md:py-20 bg-[#FAFAF7]">
       <div className="max-w-6xl mx-auto px-6 lg:px-10 relative">
+        <h2
+          className="text-2xl font-light text-[#2C2C2C] mb-8 text-center"
+          style={{ fontFamily: "var(--font-heading)" }}
+        >
+          {t("appartamenti.detail.altri_title")}
+        </h2>
         {/* Frecce ai lati come i pini */}
         <button
           onClick={() => scrollBy(-1)}
-          className="absolute -left-2 lg:-left-6 top-[150px] z-10 text-[#2C2C2C]/30 hover:text-[#2C2C2C]/70 transition-colors hidden md:block"
+          className="absolute -left-2 lg:-left-6 top-[200px] z-10 text-[#2C2C2C]/30 hover:text-[#2C2C2C]/70 transition-colors hidden md:block"
           aria-label="Precedente"
         >
           <ChevronLeft size={32} strokeWidth={1} />
         </button>
         <button
           onClick={() => scrollBy(1)}
-          className="absolute -right-2 lg:-right-6 top-[150px] z-10 text-[#2C2C2C]/30 hover:text-[#2C2C2C]/70 transition-colors hidden md:block"
+          className="absolute -right-2 lg:-right-6 top-[200px] z-10 text-[#2C2C2C]/30 hover:text-[#2C2C2C]/70 transition-colors hidden md:block"
           aria-label="Successivo"
         >
           <ChevronRight size={32} strokeWidth={1} />
@@ -92,7 +103,7 @@ function OtherApartments({ currentId }: { currentId: string }) {
           {others.map((other) => (
             <Link
               key={other.id}
-              href={`/appartamenti/${other.id}`}
+              href={`${aptBasePath}/${other.id}`}
               className="flex-shrink-0 w-[300px] md:w-[340px] snap-start group block"
             >
               {/* Foto con nome + info sovrapposti in bianco */}
@@ -131,7 +142,7 @@ function OtherApartments({ currentId }: { currentId: string }) {
                   className="text-[11px] tracking-[0.2em] uppercase text-[#2C2C2C]/50 group-hover:text-[#C4A265] transition-colors duration-300 flex items-center gap-2"
                   style={{ fontFamily: "var(--font-body)" }}
                 >
-                  dettagli <span className="inline-block w-6 h-px bg-current ml-1" /><span>→</span>
+                  {t("appartamenti.detail.dettagli")} <span className="inline-block w-6 h-px bg-current ml-1" /><span>→</span>
                 </p>
               </div>
             </Link>
@@ -143,8 +154,12 @@ function OtherApartments({ currentId }: { currentId: string }) {
 }
 
 export default function AppartamentoDetail() {
+  const { t } = useTranslation();
+  const lang = useLanguage();
   const params = useParams<{ id: string }>();
   const apt = apartments.find((a) => a.id === params.id);
+
+  const aptBasePath = lang === "en" ? "/en/apartments" : "/it/appartamenti";
 
   // Scroll to top on mount
   useEffect(() => {
@@ -165,12 +180,26 @@ export default function AppartamentoDetail() {
   const handlePrenota = () => {
     const el = document.getElementById("prenota");
     if (el) el.scrollIntoView({ behavior: "smooth" });
-    else window.location.href = "/contatti";
+    else window.location.href = `/${lang}/contatti`;
   };
+
+  const services = [
+    { icon: UtensilsCrossed, key: "cucina" },
+    { icon: Thermometer, key: "riscaldamento" },
+    { icon: Wifi, key: "wifi" },
+    { icon: BedDouble, key: "biancheria" },
+    { icon: Droplets, key: "asciugamani" },
+    { icon: Sparkles, key: "cortesia" },
+    { icon: TreePine, key: "esterni" },
+    { icon: ParkingCircle, key: "parcheggio" },
+    { icon: PlugZap, key: "ricarica" },
+    { icon: WashingMachine, key: "lavanderia" },
+  ];
 
   return (
     <div className="min-h-screen bg-[#FAFAF7]">
       <Header />
+      <SeoHead page="appartamenti" />
 
       {/* Hero slider */}
       <DetailHeroSlider images={apt.images} name={apt.name} />
@@ -190,15 +219,17 @@ export default function AppartamentoDetail() {
             <div className="flex items-center justify-center gap-6 mb-8">
               <div className="flex items-center gap-2 text-[#2C2C2C]/60">
                 <Maximize size={16} strokeWidth={1.2} />
-                <span className="text-sm" style={{ fontFamily: "var(--font-body)" }}>{apt.sqm} m²</span>
+                <span className="text-sm" style={{ fontFamily: "var(--font-body)" }}>{apt.sqm} {t("appartamenti.detail.mq")}</span>
               </div>
               <div className="flex items-center gap-2 text-[#2C2C2C]/60">
                 <Users size={16} strokeWidth={1.2} />
-                <span className="text-sm" style={{ fontFamily: "var(--font-body)" }}>{apt.capacity.replace("Fino a ", "")}</span>
+                <span className="text-sm" style={{ fontFamily: "var(--font-body)" }}>
+                  {t("appartamenti.detail.fino_a")} {apt.capacity.replace("Fino a ", "").replace(" persone", "").replace(" persona", "")} {t("appartamenti.detail.persone")}
+                </span>
               </div>
               <div className="flex items-center gap-2 text-[#2C2C2C]/60">
                 <Bath size={16} strokeWidth={1.2} />
-                <span className="text-sm" style={{ fontFamily: "var(--font-body)" }}>{apt.bathrooms} bagn{apt.bathrooms === 1 ? "o" : "i"}</span>
+                <span className="text-sm" style={{ fontFamily: "var(--font-body)" }}>{apt.bathrooms} {t("appartamenti.detail.bagni")}</span>
               </div>
             </div>
 
@@ -218,12 +249,12 @@ export default function AppartamentoDetail() {
                 {apt.disabledAccess && (
                   <span className="inline-flex items-center gap-1.5 text-xs text-[#2C2C2C]/60 border border-[#2C2C2C]/20 px-3 py-1.5" style={{ fontFamily: "var(--font-body)" }}>
                     <Accessibility size={14} />
-                    Accessibile disabili
+                    {t("appartamenti.detail.disabili")}
                   </span>
                 )}
                 {apt.petsAllowed && (
                   <span className="inline-flex items-center gap-1.5 text-xs text-[#2C2C2C]/60 border border-[#2C2C2C]/20 px-3 py-1.5" style={{ fontFamily: "var(--font-body)" }}>
-                    Animali ammessi (previa richiesta)
+                    {t("appartamenti.detail.animali")}
                   </span>
                 )}
               </div>
@@ -243,8 +274,19 @@ export default function AppartamentoDetail() {
                 className="text-xs tracking-[0.2em] uppercase border border-[#C4A265] text-[#C4A265] px-8 py-3 hover:bg-[#C4A265] hover:text-white transition-all duration-300"
                 style={{ fontFamily: "var(--font-body)" }}
               >
-                Prenota
+                {t("appartamenti.detail.prenota")}
               </button>
+            </div>
+
+            {/* Back to apartments link */}
+            <div className="mt-6">
+              <Link
+                href={aptBasePath}
+                className="text-xs tracking-[0.15em] uppercase text-[#2C2C2C]/40 hover:text-[#C4A265] transition-colors"
+                style={{ fontFamily: "var(--font-body)" }}
+              >
+                ← {lang === "en" ? "All apartments" : "Tutti gli appartamenti"}
+              </Link>
             </div>
           </motion.div>
         </div>
@@ -254,39 +296,58 @@ export default function AppartamentoDetail() {
       <section className="py-14 bg-[#F5F3EE]">
         <div className="max-w-5xl mx-auto px-6 lg:px-10">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="text-center mb-6">
-            <p className="text-[11px] tracking-[0.3em] uppercase text-[#C4A265] mb-4" style={{ fontFamily: "var(--font-body)" }}>Inclusi nel soggiorno</p>
-            <h2 className="text-3xl md:text-4xl font-light text-[#2C2C2C]" style={{ fontFamily: "var(--font-heading)" }}>Servizi ed info</h2>
+            <p className="text-[11px] tracking-[0.3em] uppercase text-[#C4A265] mb-4" style={{ fontFamily: "var(--font-body)" }}>
+              {t("appartamenti.detail.servizi_subtitle")}
+            </p>
+            <h2 className="text-3xl md:text-4xl font-light text-[#2C2C2C]" style={{ fontFamily: "var(--font-heading)" }}>
+              {t("appartamenti.detail.servizi_title")}
+            </h2>
             <div className="w-10 h-px bg-[#C4A265] mx-auto mt-6" />
           </motion.div>
           <div className="grid grid-cols-2 md:grid-cols-5 gap-x-6 gap-y-10 md:gap-y-14">
-            {[
-              { icon: UtensilsCrossed, label: "Cucina attrezzata" },
-              { icon: Thermometer, label: "Riscaldamento e raffrescamento" },
-              { icon: Wifi, label: "Wi-Fi" },
-              { icon: BedDouble, label: "Biancheria da letto e da bagno" },
-              { icon: Droplets, label: "Asciugamani per piscina" },
-              { icon: Sparkles, label: "Set di cortesia" },
-              { icon: TreePine, label: "Spazi esterni con tavolino" },
-              { icon: ParkingCircle, label: "Parcheggio interno" },
-              { icon: PlugZap, label: "Ricarica auto elettriche" },
-              { icon: WashingMachine, label: "Lavanderia" },
-            ].map((service, i) => (
-              <motion.div key={service.label} initial={{ opacity: 0, y: 15 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4, delay: i * 0.05 }} className="flex flex-col items-center text-center group">
+            {services.map((service, i) => (
+              <motion.div
+                key={service.key}
+                initial={{ opacity: 0, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: i * 0.05 }}
+                className="flex flex-col items-center text-center group"
+              >
                 <div className="w-12 h-12 flex items-center justify-center mb-3">
                   <service.icon size={22} strokeWidth={1.2} className="text-[#C4A265] group-hover:scale-110 transition-transform duration-300" />
                 </div>
-                <span className="text-[12px] leading-[1.4] tracking-[0.04em] text-[#2C2C2C]/65" style={{ fontFamily: "var(--font-body)", fontWeight: 300 }}>{service.label}</span>
+                <span className="text-[12px] leading-[1.4] tracking-[0.04em] text-[#2C2C2C]/65" style={{ fontFamily: "var(--font-body)", fontWeight: 300 }}>
+                  {t(`appartamenti.services.${service.key}`)}
+                </span>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Photo gallery grid — 2 colonne */}
-      {apt.images.length > 2 && (
+      {/* Photo gallery grid — planimetria come prima foto, poi le foto dell'appartamento */}
+      {(apt.floorPlanImage || apt.images.length > 2) && (
         <section className="max-w-6xl mx-auto px-6 lg:px-10 py-10">
           <div className="grid grid-cols-2 gap-3">
-            {apt.images.slice(0, 6).map((img, i) => (
+            {/* Planimetria — prima foto, sfondo chiaro, object-contain */}
+            {apt.floorPlanImage && (
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5 }}
+                className="bg-[#F5F3EF] flex items-center justify-center"
+              >
+                <img
+                  src={apt.floorPlanImage}
+                  alt={`${t("appartamenti.detail.floorplan")} ${apt.name}`}
+                  className="w-full h-[250px] md:h-[350px] object-contain p-4"
+                />
+              </motion.div>
+            )}
+            {/* Foto dell'appartamento */}
+            {apt.images.slice(0, apt.floorPlanImage ? 5 : 6).map((img, i) => (
               <motion.div
                 key={i}
                 initial={{ opacity: 0, y: 20 }}
@@ -306,7 +367,7 @@ export default function AppartamentoDetail() {
       )}
 
       {/* Carosello altri appartamenti */}
-      <OtherApartments currentId={apt.id} />
+      <OtherApartments currentId={apt.id} lang={lang} />
 
       <ContactSection />
       <Footer />

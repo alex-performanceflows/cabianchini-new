@@ -3,20 +3,36 @@
  * Aperto: le voci nav appaiono nella STESSA riga, tra logo e bottoni
  */
 import { useState, useEffect, useRef } from "react";
+import { useTranslation } from "react-i18next";
 import { logoUrl, logoWhiteUrl } from "@/lib/data";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link, useLocation } from "wouter";
+import { useLanguage, useAlternateLangUrl } from "@/hooks/useLanguage";
 
 export default function Header() {
+  const { t } = useTranslation();
+  const lang = useLanguage();
+  const alternateLangUrl = useAlternateLangUrl();
+  const alternateLang = lang === "it" ? "en" : "it";
+  const alternateFlag = alternateLang === "en" ? "🇬🇧" : "🇮🇹";
+  const alternateLangLabel = alternateLang === "en" ? "English" : "Italiano";
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const [location] = useLocation();
-  const isHome = location === "/";
-  const isDintorni = location === "/dintorni";
-  const isAppartamenti = location.startsWith("/appartamenti");
-  const isPosizione = location === "/posizione";
-  const isContatti = location === "/contatti";
+  const [location, navigate] = useLocation();
+
+  const isHome = location === "/it" || location === "/en" || location === "/";
+  const isDintorni = location === "/it/dintorni" || location === "/en/surroundings" || location === "/dintorni";
+  const isAppartamenti =
+    location.startsWith("/it/appartamenti") ||
+    location.startsWith("/en/apartments") ||
+    location.startsWith("/appartamenti");
+  const isPosizione = location === "/it/posizione" || location === "/en/location" || location === "/posizione";
+  const isContatti =
+    location === "/it/contatti" ||
+    location === "/en/contact" ||
+    location === "/contatti";
+
   const hasHeroSlider = isHome || isDintorni || isAppartamenti || isPosizione || isContatti;
   const isInternal = !hasHeroSlider;
   const menuRef = useRef<HTMLDivElement>(null);
@@ -46,12 +62,20 @@ export default function Header() {
     setMenuOpen(false);
   }, [location]);
 
-  const navLinks = [
-    { label: "Appartamenti", href: "/appartamenti" },
-    { label: "Dintorni", href: "/dintorni" },
-    { label: "Posizione", href: "/posizione" },
-    { label: "Contatti", href: "/contatti" },
-  ];
+  const navLinks =
+    lang === "en"
+      ? [
+          { label: t("nav.appartamenti"), href: "/en/apartments" },
+          { label: t("nav.dintorni"), href: "/en/surroundings" },
+          { label: t("nav.posizione"), href: "/en/location" },
+          { label: t("nav.contatti"), href: "/en/contact" },
+        ]
+      : [
+          { label: t("nav.appartamenti"), href: "/it/appartamenti" },
+          { label: t("nav.dintorni"), href: "/it/dintorni" },
+          { label: t("nav.posizione"), href: "/it/posizione" },
+          { label: t("nav.contatti"), href: "/it/contatti" },
+        ];
 
   // --- Detect if header overlaps any image on the page ---
   const [overDark, setOverDark] = useState(hasHeroSlider);
@@ -120,7 +144,7 @@ export default function Header() {
     if (el) {
       el.scrollIntoView({ behavior: "smooth" });
     } else {
-      window.location.href = "/contatti";
+      navigate(`/${lang}/contatti`);
     }
   };
 
@@ -132,7 +156,7 @@ export default function Header() {
       >
         <div className="max-w-6xl mx-auto w-full flex items-center justify-between px-6 md:px-10 lg:px-12 py-4">
           {/* Logo */}
-          <Link href="/" className="relative z-10 shrink-0">
+          <Link href={`/${lang}`} className="relative z-10 shrink-0">
             <img
               src={currentLogo}
               alt="Ca' Bianchini"
@@ -162,6 +186,16 @@ export default function Header() {
                     {link.label}
                   </Link>
                 ))}
+                {/* Alternate language flag — only the one you can switch to */}
+                <Link
+                  href={alternateLangUrl}
+                  onClick={() => setMenuOpen(false)}
+                  title={alternateLangLabel}
+                  aria-label={alternateLang === "en" ? "Switch to English" : "Passa all'italiano"}
+                  className="text-xl leading-none opacity-60 hover:opacity-100 transition-opacity duration-200"
+                >
+                  {alternateFlag}
+                </Link>
               </motion.nav>
             )}
           </AnimatePresence>
@@ -179,7 +213,7 @@ export default function Header() {
               style={{ fontFamily: "var(--font-body)" }}
               aria-label="Menu"
             >
-              <span>Menu</span>
+              <span>{t("nav.menu")}</span>
               <div className="flex flex-col gap-[3px] ml-1">
                 {menuOpen ? (
                   <X size={16} strokeWidth={1.5} />
@@ -203,8 +237,9 @@ export default function Header() {
               }`}
               style={{ fontFamily: "var(--font-body)" }}
             >
-              Prenota
+              {t("nav.prenota")}
             </button>
+
           </div>
         </div>
 
@@ -236,8 +271,18 @@ export default function Header() {
                     className="mt-4 text-xs tracking-[0.2em] uppercase bg-[#8B8B8B] text-white px-8 py-3 text-center transition-all duration-300 hover:bg-[#C4A265]"
                     style={{ fontFamily: "var(--font-body)" }}
                   >
-                    Prenota
+                    {t("nav.prenota")}
                   </button>
+                  {/* Alternate language flag — solo quella su cui puoi switchare */}
+                  <Link
+                    href={alternateLangUrl}
+                    onClick={() => setMenuOpen(false)}
+                    title={alternateLangLabel}
+                    aria-label={alternateLang === "en" ? "Switch to English" : "Passa all'italiano"}
+                    className="text-2xl leading-none opacity-60 hover:opacity-100 transition-opacity duration-200"
+                  >
+                    {alternateFlag}
+                  </Link>
                 </div>
               </nav>
             </motion.div>

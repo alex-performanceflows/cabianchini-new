@@ -3,11 +3,14 @@
  * Hero slider → Dove siamo + Arrivo/partenza → Mappa con partenza → Come raggiungerci (auto/treno/aereo)
  */
 import { useState, useEffect, useCallback } from "react";
+import { useTranslation } from "react-i18next";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight, MapPin, Clock, Car, Plane, Train } from "lucide-react";
 import Header from "@/components/Header";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
+import SeoHead from "@/components/SeoHead";
+import { useLanguage } from "@/hooks/useLanguage";
 
 const heroSlides = [
   "/images/slider_posizione/Location-Slider-1.webp",
@@ -64,6 +67,9 @@ const destinations = [
 ];
 
 export default function Posizione() {
+  const { t } = useTranslation();
+  useLanguage();
+
   const [departure, setDeparture] = useState("");
   const [mapSrc, setMapSrc] = useState(
     "https://maps.google.com/maps?q=Ca'+Bianchini+Agriturismo,+Via+Bianchini+10,+Lanzago+di+Silea+TV&z=14&output=embed&hl=it"
@@ -78,9 +84,16 @@ export default function Posizione() {
     );
   };
 
+  const transportSections = [
+    { icon: Car, key: "auto" },
+    { icon: Plane, key: "aereo" },
+    { icon: Train, key: "treno" },
+  ];
+
   return (
     <div className="min-h-screen bg-[#FAFAF7]">
       <Header />
+      <SeoHead page="posizione" />
       <HeroSlider />
 
       {/* Dove siamo — intro centrata */}
@@ -91,27 +104,12 @@ export default function Posizione() {
               className="text-3xl md:text-4xl font-light text-[#2C2C2C] leading-[1.15] mb-6"
               style={{ fontFamily: "var(--font-heading)" }}
             >
-              Dove siamo
+              {t("posizione.intro_title")}
             </h1>
 
             <div className="space-y-4 text-[#2C2C2C]/70 text-[13px] leading-[1.7]" style={{ fontFamily: "var(--font-body)", fontWeight: 300 }}>
-              <p className="font-medium text-[#2C2C2C]/90 text-sm" style={{ fontWeight: 400 }}>
-                Arrivo e partenza
-              </p>
               <p>
-                Il check-in è dalle 15.00 alle 19.00. Se considerate di arrivare in orari diversi da quelli previsti,
-                vi preghiamo di informarci in anticipo. Chiediamo a tutti i nostri ospiti di effettuare il check-out
-                entro le 10.30 del giorno stesso della partenza.
-              </p>
-
-              <p className="font-medium text-[#2C2C2C]/90 text-sm pt-4" style={{ fontWeight: 400 }}>
-                Come raggiungere Ca' Bianchini
-              </p>
-              <p>
-                L'Agriturismo Ca' Bianchini si trova a Lanzago di Silea, immerso nella campagna trevigiana,
-                a pochi minuti dal centro storico di Treviso. La posizione è ideale per chi vuole vivere
-                la tranquillità della campagna veneta mantenendo la possibilità di raggiungere facilmente
-                Venezia, le colline del Prosecco, le Dolomiti e le ville palladiane.
+                {t("posizione.intro_p1")}
               </p>
             </div>
           </motion.div>
@@ -132,14 +130,14 @@ export default function Posizione() {
               className="text-sm text-[#2C2C2C]/60 flex-shrink-0"
               style={{ fontFamily: "var(--font-body)" }}
             >
-              Partenza:
+              {t("posizione.partenza_label")}
             </span>
             <input
               type="text"
               value={departure}
               onChange={(e) => setDeparture(e.target.value)}
               onKeyDown={(e) => e.key === "Enter" && handleShowRoute()}
-              placeholder="Inserisci la tua città di partenza"
+              placeholder={t("posizione.partenza_placeholder")}
               className="flex-1 border-b border-[#2C2C2C]/20 bg-transparent py-2 text-sm text-[#2C2C2C] placeholder:text-[#2C2C2C]/30 focus:outline-none focus:border-[#C4A265] transition-colors"
               style={{ fontFamily: "var(--font-body)" }}
             />
@@ -148,7 +146,7 @@ export default function Posizione() {
               className="text-xs tracking-[0.2em] uppercase border border-[#2C2C2C] text-[#2C2C2C] px-6 py-2.5 hover:bg-[#2C2C2C] hover:text-white transition-all duration-300 flex-shrink-0"
               style={{ fontFamily: "var(--font-body)" }}
             >
-              Mostra percorso
+              {t("posizione.mostra_percorso")}
             </button>
           </div>
 
@@ -176,7 +174,7 @@ export default function Posizione() {
               rel="noopener noreferrer"
               className="ml-auto text-xs tracking-[0.15em] uppercase border border-[#2C2C2C] text-[#2C2C2C] px-4 py-2 hover:bg-[#2C2C2C] hover:text-[#FAFAF7] transition-all duration-300 flex-shrink-0"
             >
-              Apri in Google Maps
+              {t("posizione.apri_maps")}
             </a>
           </div>
         </motion.div>
@@ -194,32 +192,16 @@ export default function Posizione() {
         <div className="max-w-3xl mx-auto text-center mb-10">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
             <h2 className="text-3xl md:text-4xl font-light text-[#2C2C2C]" style={{ fontFamily: "var(--font-heading)" }}>
-              Come raggiungerci
+              {t("posizione.transport_title")}
             </h2>
             <div className="w-10 h-px bg-[#C4A265] mx-auto mt-6" />
           </motion.div>
         </div>
 
         <div className="grid md:grid-cols-3 gap-10 md:gap-14">
-          {[
-            {
-              icon: Car,
-              title: "Automobile",
-              content: "Dall'autostrada A27 (Venezia–Belluno), uscita Treviso Nord. Seguire le indicazioni per Silea/Lanzago. Via Bianchini, 10.\n\nPotete fare riferimento a Google Maps per le indicazioni stradali dalla vostra destinazione.",
-            },
-            {
-              icon: Plane,
-              title: "Aeroplano",
-              content: "Gli aeroporti più vicini sono:\n\nAeroporto di Treviso Sant'Angelo — 12 km\nAeroporto di Venezia Marco Polo — 20 km\nAeroporto di Verona — 140 km\nAeroporto di Bologna — 200 km",
-            },
-            {
-              icon: Train,
-              title: "Treno",
-              content: "Stazione di Treviso Centrale (10 km). Da lì è possibile raggiungere Ca' Bianchini in taxi o con un'auto a noleggio.\n\nConsigliamo caldamente a tutti i nostri ospiti di vivere l'atmosfera tranquilla della campagna veneta.",
-            },
-          ].map((section, i) => (
+          {transportSections.map((section, i) => (
             <motion.div
-              key={section.title}
+              key={section.key}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -231,10 +213,10 @@ export default function Posizione() {
                 className="text-xl font-light text-[#2C2C2C] mb-4"
                 style={{ fontFamily: "var(--font-heading)" }}
               >
-                {section.title}
+                {t(`posizione.${section.key}.title`)}
               </h3>
               <div className="space-y-2 text-[#2C2C2C]/65 text-[13px] leading-[1.6]" style={{ fontFamily: "var(--font-body)", fontWeight: 300 }}>
-                {section.content.split("\n\n").map((p, j) => (
+                {t(`posizione.${section.key}.content`).split("\n\n").map((p, j) => (
                   <p key={j} className="whitespace-pre-line">{p}</p>
                 ))}
               </div>

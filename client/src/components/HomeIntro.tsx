@@ -3,9 +3,12 @@
  * Sezione introduttiva Home — pattern I Pini: titolo centrato → testo centrato → 2 foto affiancate
  */
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 
 
 export default function HomeIntro() {
+  const { t } = useTranslation();
+
   return (
     <section className="pt-14 md:pt-14 pb-0">
       <div className="max-w-3xl mx-auto px-6 text-center">
@@ -19,37 +22,23 @@ export default function HomeIntro() {
             className="text-3xl md:text-4xl font-light text-[#2C2C2C] leading-[1.15] mb-6"
             style={{ fontFamily: "var(--font-heading)" }}
           >
-            Ca' Bianchini
+            {t("home.intro.title")}
           </h2>
 
           <div
             className="space-y-3 text-[#2C2C2C]/70 text-[13px] leading-[1.6] mb-6"
             style={{ fontFamily: "var(--font-body)", fontWeight: 300 }}
           >
-            <p>
-              Immerso nella campagna veneta, Ca' Bianchini è un agriturismo con appartamenti
-              indipendenti situato all'interno di una proprietà agricola che appartiene alla
-              nostra famiglia da generazioni. Qui la terra continua a essere vissuta e curata
-              con attenzione, nel rispetto dei suoi ritmi.
-            </p>
-            <p>
-              La casa di campagna è stata restaurata preservandone la semplicità e la struttura
-              originaria, aprendola all'ospitalità. I cinque appartamenti indipendenti offrono
-              spazi luminosi e curati, pensati per vivere il soggiorno con autonomia.
-            </p>
-            <p>
-              Le giornate scorrono tra campi e natura. La piscina, immersa nel verde, è uno
-              spazio dove fermarsi e godere dell'aria aperta. La posizione permette di raggiungere
-              facilmente Treviso, Venezia e le colline del Prosecco, per poi rientrare in un
-              contesto tranquillo e autentico.
-            </p>
+            <p>{t("home.intro.p1")}</p>
+            <p>{t("home.intro.p2")}</p>
+            <p>{t("home.intro.p3")}</p>
           </div>
 
           <p
             className="text-[#2C2C2C] text-[13px] italic mb-6"
             style={{ fontFamily: "var(--font-heading)", fontStyle: "italic" }}
           >
-            Accogliamo chi sceglie la natura e ne condivide il rispetto.
+            {t("home.intro.quote")}
           </p>
         </motion.div>
       </div>

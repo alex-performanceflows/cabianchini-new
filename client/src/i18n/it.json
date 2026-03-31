@@ -1,0 +1,240 @@
+{
+  "nav": {
+    "menu": "Menu",
+    "prenota": "Prenota",
+    "appartamenti": "Appartamenti",
+    "dintorni": "Dintorni",
+    "posizione": "Posizione",
+    "contatti": "Contatti"
+  },
+  "home": {
+    "intro": {
+      "title": "Ca' Bianchini",
+      "p1": "Immerso nella campagna veneta, Ca' Bianchini è un agriturismo con appartamenti indipendenti situato all'interno di una proprietà agricola che appartiene alla nostra famiglia da generazioni. Qui la terra continua a essere vissuta e curata con attenzione, nel rispetto dei suoi ritmi.",
+      "p2": "La casa di campagna è stata restaurata preservandone la semplicità e la struttura originaria, aprendola all'ospitalità. I cinque appartamenti indipendenti offrono spazi luminosi e curati, pensati per vivere il soggiorno con autonomia.",
+      "p3": "Le giornate scorrono tra campi e natura. La piscina, immersa nel verde, è uno spazio dove fermarsi e godere dell'aria aperta. La posizione permette di raggiungere facilmente Treviso, Venezia e le colline del Prosecco, per poi rientrare in un contesto tranquillo e autentico.",
+      "quote": "Accogliamo chi sceglie la natura e ne condivide il rispetto."
+    },
+    "apartments": {
+      "title": "Gli appartamenti",
+      "p1": "Ca' Bianchini dispone di cinque appartamenti indipendenti, ognuno con ingresso autonomo e spazi propri. Sono pensati per famiglie o gruppi di amici che vogliono vivere la campagna veneta con autonomia e tranquillità.",
+      "p2": "Gli ambienti sono luminosi e curati, arredati con semplicità e attenzione al dettaglio. Ogni appartamento è dotato di cucina attrezzata, zona giorno e camere da letto confortevoli.",
+      "p3": "La proprietà è immersa nel verde e dispone di una piscina condivisa, parcheggio privato e ampi spazi all'aperto dove rilassarsi durante il soggiorno.",
+      "cta": "Scopri di più"
+    },
+    "soggiorno": {
+      "title": "Il soggiorno",
+      "p1": "A Ca' Bianchini le giornate seguono il ritmo della campagna. La piscina, immersa nel verde, è uno spazio dove fermarsi e godere dell'aria aperta. Intorno si aprono i campi della campagna veneta.",
+      "p2": "Al tramonto la luce cambia colore e, nelle giornate più limpide, lo sguardo arriva fino alle montagne. Un luogo pensato per chi cerca quiete, spazio e contatto autentico con la natura."
+    },
+    "dintorni": {
+      "title": "Dintorni",
+      "p1": "Il territorio che circonda Ca' Bianchini offre molte possibilità di scoperta, tra città d'arte, paesaggi di campagna e percorsi nella natura.",
+      "p2": "La posizione permette di raggiungere facilmente Venezia, le colline del Prosecco e numerosi itinerari da esplorare con calma.",
+      "cta": "Scopri di più"
+    }
+  },
+  "appartamenti": {
+    "heroTitle": "Gli appartamenti",
+    "title": "Gli appartamenti",
+    "subtitle": "Cinque appartamenti indipendenti",
+    "p1": "Ca' Bianchini dispone di cinque appartamenti indipendenti, ognuno con ingresso autonomo e spazi propri. Sono pensati per famiglie o gruppi di amici che vogliono vivere la campagna veneta con autonomia e tranquillità.",
+    "p2": "Gli ambienti sono luminosi e curati, arredati con semplicità e attenzione al dettaglio. Ogni appartamento è dotato di cucina attrezzata, zona giorno e camere da letto confortevoli.",
+    "p3": "La proprietà è immersa nel verde e dispone di una piscina condivisa, parcheggio privato e ampi spazi all'aperto dove rilassarsi durante il soggiorno.",
+    "cta": "Scopri di più",
+    "services": {
+      "title": "Servizi inclusi",
+      "cucina": "Cucina attrezzata",
+      "riscaldamento": "Riscaldamento e raffrescamento",
+      "wifi": "Wi-Fi",
+      "biancheria": "Biancheria da letto e da bagno",
+      "asciugamani": "Asciugamani per piscina",
+      "cortesia": "Set di cortesia",
+      "esterni": "Spazi esterni con tavolino",
+      "parcheggio": "Parcheggio interno",
+      "ricarica": "Ricarica auto elettriche",
+      "lavanderia": "Lavanderia in comune"
+    },
+    "detail": {
+      "persone": "persone",
+      "fino_a": "Fino a",
+      "mq": "m²",
+      "camere": "camere",
+      "bagni": "bagni",
+      "prenota": "Prenota",
+      "servizi_title": "Servizi ed info",
+      "servizi_subtitle": "Inclusi nel soggiorno",
+      "animali": "Animali ammessi",
+      "disabili": "Accessibile ai disabili",
+      "altri_title": "Scopri gli altri appartamenti",
+      "dettagli": "Dettagli",
+      "floorplan": "Planimetria"
+    },
+    "note": "Sistema di climatizzazione a pompe di calore (senza aria condizionata) · Lavanderia in comune"
+  },
+  "dintorni": {
+    "heroTitle": "I dintorni",
+    "title": "I dintorni",
+    "intro_p1": "Il territorio che circonda Ca' Bianchini offre molte possibilità di scoperta, tra città d'arte, paesaggi naturali e percorsi nella natura. La posizione è ideale per chi vuole vivere la tranquillità della campagna veneta mantenendo la possibilità di raggiungere facilmente Venezia, le colline del Prosecco, le Dolomiti e le ville palladiane.",
+    "sections": {
+      "treviso": {
+        "title": "Treviso",
+        "subtitle": "La città dei affreschi e dei canali",
+        "p1": "Treviso è una città d'arte dal fascino discreto, spesso trascurata dai circuiti turistici più frequentati. Le sue mura medievali, i canali e le piazze animate la rendono una meta piacevole da esplorare a piedi o in bicicletta.",
+        "p2": "Il centro storico è ricco di chiese affrescate, tra cui il Duomo e la chiesa di San Nicolò. Il mercato coperto, i caffè storici e la tradizione gastronomica locale completano l'esperienza."
+      },
+      "venezia": {
+        "title": "Venezia",
+        "subtitle": "A un passo dalla laguna",
+        "p1": "Venezia è facilmente raggiungibile e rappresenta una delle mete più affascinanti del territorio. Una giornata tra calli, ponti e palazzi storici permette di scoprire uno dei luoghi più unici al mondo."
+      },
+      "prosecco": {
+        "title": "Le colline del Prosecco",
+        "subtitle": "Patrimonio UNESCO",
+        "p1": "Verso nord si estendono le colline del Prosecco, patrimonio UNESCO, caratterizzate da vigneti, piccoli borghi e panorami aperti.",
+        "p2": "Le strade tra i vigneti offrono percorsi ideali per passeggiate e degustazioni nelle cantine della zona."
+      },
+      "dolomiti": {
+        "title": "Le Dolomiti",
+        "subtitle": "Patrimonio naturale dell'umanità",
+        "p1": "Le Dolomiti sono raggiungibili in circa un'ora e mezza e offrono scenari montani tra i più spettacolari d'Europa, sia in estate che in inverno."
+      },
+      "ville": {
+        "title": "Le ville venete",
+        "subtitle": "Architettura palladiana",
+        "p1": "Il territorio è ricco di ville venete storiche, testimonianza della cultura e dell'architettura della Repubblica di Venezia. Molte di queste dimore sono visitabili e permettono di scoprire giardini, affreschi e ambienti legati alla storia della campagna veneta.",
+        "p2": "Tra le più celebri si trovano Villa Tiepolo Passi, a pochi minuti da Ca' Bianchini, e Villa Barbaro a Maser, capolavoro palladiano decorato dagli affreschi di Paolo Veronese."
+      },
+      "natura": {
+        "title": "Natura e percorsi",
+        "subtitle": "Itinerari tra campi e fiumi",
+        "p1": "Il territorio offre numerosi percorsi immersi nella natura, ideali per passeggiate e giri in bicicletta.",
+        "p2": "La Ciclovia del Sile permette di pedalare lungo il fiume fino a Treviso. I percorsi tra i campi e i filari di vite offrono panorami tipici della campagna veneta.",
+        "p3": "Il Parco Naturale del Fiume Sile, a pochi minuti da Ca' Bianchini, è un'area protetta ideale per passeggiate nella natura."
+      },
+      "montagne": {
+        "title": "Le montagne",
+        "subtitle": "A un passo dalle Dolomiti",
+        "p1": "Le montagne del Trevigiano e del Bellunese offrono scenari di grande bellezza, con borghi storici, laghi alpini e percorsi escursionistici per tutti i livelli.",
+        "p2": "In inverno, le stazioni sciistiche delle Dolomiti sono comodamente raggiungibili in giornata."
+      }
+    }
+  },
+  "posizione": {
+    "heroTitle": "Come raggiungerci",
+    "title": "Come raggiungerci",
+    "intro_title": "Dove siamo",
+    "intro_p1": "Ca' Bianchini si trova a Lanzago di Silea, in provincia di Treviso, immerso nella campagna veneta. La posizione è ideale per chi vuole vivere la tranquillità della campagna veneta mantenendo la possibilità di raggiungere facilmente Venezia, le colline del Prosecco, le Dolomiti e le ville palladiane.",
+    "address_label": "Indirizzo",
+    "partenza_label": "Partenza:",
+    "partenza_placeholder": "Inserisci la tua città di partenza",
+    "mostra_percorso": "Mostra percorso",
+    "apri_maps": "Apri in Google Maps",
+    "transport_title": "Come raggiungerci",
+    "auto": {
+      "title": "In auto",
+      "content": "Dall'autostrada A27 (Venezia–Belluno), uscita Treviso Sud. Seguire le indicazioni per Silea/Lanzago. Via Bianchini, 10.\n\nPotete fare riferimento a Google Maps per le indicazioni stradali dalla vostra destinazione."
+    },
+    "treno": {
+      "title": "In treno",
+      "content": "Stazione di Treviso Centrale (10 km). Da lì è possibile raggiungere Ca' Bianchini in taxi o con un'auto a noleggio.\n\nConsigliamo caldamente a tutti i nostri ospiti di vivere l'atmosfera tranquilla della campagna veneta."
+    },
+    "aereo": {
+      "title": "In aereo",
+      "content": "Aeroporto Marco Polo di Venezia (30 km) — il più vicino e comodo.\nAeroporto Antonio Canova di Treviso (15 km) — con voli low cost."
+    },
+    "bici": {
+      "title": "In bicicletta",
+      "content": "Raggiungibile in bicicletta in 15 minuti o a piedi in circa 40 minuti.\n\nCollaboriamo con Treviso Bike per il noleggio biciclette."
+    }
+  },
+  "contatti": {
+    "heroTitle": "Contatti",
+    "scrivici": "Scrivici",
+    "title": "Invia un messaggio",
+    "subtitle": "Compila il modulo per qualsiasi richiesta di informazioni. Ti risponderemo nel più breve tempo possibile.",
+    "alternativa": "In alternativa scrivi direttamente a",
+    "form": {
+      "nome": "Nome e cognome",
+      "email": "Email",
+      "telefono": "Telefono",
+      "appartamento": "Appartamento",
+      "checkin": "Check-in",
+      "checkout": "Check-out",
+      "ospiti": "Numero ospiti",
+      "messaggio": "Messaggio",
+      "messaggio_placeholder": "Scrivi qui eventuali richieste o domande...",
+      "invia": "Invia messaggio",
+      "tutti": "Tutti",
+      "nome_placeholder": "Mario Rossi",
+      "email_placeholder": "mario@email.com",
+      "telefono_placeholder": "+39 000 0000000",
+      "ospiti_placeholder": "2"
+    },
+    "apri_maps": "Apri in Google Maps →",
+    "servizi_extra": "Collaboriamo con {{bike}} per il noleggio bici e con un servizio taxi privato per i vostri spostamenti — Antonio {{telefono}}."
+  },
+  "contact_section": {
+    "label": "Richiedi disponibilità",
+    "title": "Organizziamo insieme il tuo soggiorno",
+    "subtitle": "Per informazioni o per richiedere la disponibilità degli appartamenti, potete contattarci compilando il modulo oppure scrivendoci direttamente. Saremo felici di rispondervi e di aiutarvi a organizzare il vostro soggiorno a Ca' Bianchini.",
+    "form": {
+      "nome": "Nome e cognome",
+      "email": "Email",
+      "telefono": "Telefono",
+      "appartamento": "Appartamento",
+      "checkin": "Check-in",
+      "checkout": "Check-out",
+      "ospiti": "Numero ospiti",
+      "messaggio": "Messaggio",
+      "messaggio_placeholder": "Scrivi qui eventuali richieste o domande...",
+      "invia": "Invia richiesta",
+      "tutti": "Tutti",
+      "nome_placeholder": "Mario Rossi",
+      "email_placeholder": "mario@email.com",
+      "telefono_placeholder": "+39 000 0000000",
+      "ospiti_placeholder": "2"
+    },
+    "servizi_extra": "Collaboriamo con <bike>Treviso Bike</bike> per il noleggio bici e con un servizio taxi privato per i vostri spostamenti — Antonio <tel>347 305 9916</tel>."
+  },
+  "footer": {
+    "tagline": "Agriturismo immerso nel verde della campagna trevigiana, a pochi minuti dal centro storico di Treviso.",
+    "contatti": "Contatti",
+    "seguici": "Seguici",
+    "copyright": "Copyright © {{year}} Ca' Bianchini – by",
+    "privacy": "Privacy Policy",
+    "cookie": "Cookie Policy",
+    "erogazioni": "Erogazioni Pubbliche",
+    "lang_it": "IT",
+    "lang_en": "EN"
+  },
+  "cookie_banner": {
+    "title": "Utilizziamo i cookie",
+    "text": "Questo sito utilizza cookie tecnici necessari al funzionamento e, previo consenso, cookie analitici (Google Analytics) per migliorare l'esperienza di navigazione.",
+    "accetta": "Accetta tutti",
+    "rifiuta": "Solo necessari",
+    "scopri": "Scopri di più"
+  },
+  "seo": {
+    "home": {
+      "title": "Ca' Bianchini — Agriturismo a Treviso con appartamenti indipendenti",
+      "description": "Agriturismo con 5 appartamenti indipendenti immerso nella campagna veneta a Lanzago di Silea (Treviso). Piscina, parcheggio privato e colonnina di ricarica. Vicino a Venezia e alle colline del Prosecco."
+    },
+    "appartamenti": {
+      "title": "Gli appartamenti — Ca' Bianchini Agriturismo Treviso",
+      "description": "Cinque appartamenti indipendenti con cucina attrezzata, Wi-Fi e piscina condivisa. Ideali per famiglie e gruppi. Ca' Bianchini, Lanzago di Silea (TV)."
+    },
+    "dintorni": {
+      "title": "Dintorni — Ca' Bianchini Agriturismo Treviso",
+      "description": "Scopri i dintorni di Ca' Bianchini: Treviso, Venezia, le colline del Prosecco UNESCO, le Dolomiti, le ville palladiane e la ciclovia del Sile."
+    },
+    "posizione": {
+      "title": "Come raggiungerci — Ca' Bianchini Agriturismo Treviso",
+      "description": "Ca' Bianchini si trova a Lanzago di Silea (TV), vicino a Treviso e Venezia. Indicazioni in auto, treno e aereo per raggiungere il nostro agriturismo."
+    },
+    "contatti": {
+      "title": "Contatti e prenotazioni — Ca' Bianchini Agriturismo Treviso",
+      "description": "Contattaci per informazioni e disponibilità. Ca' Bianchini Agriturismo, Via Bianchini 10, Lanzago di Silea (TV). info@cabianchini.com"
+    }
+  }
+}

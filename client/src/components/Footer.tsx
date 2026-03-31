@@ -2,11 +2,22 @@
  * Design: Campagna Editoriale
  * Footer elegante con contatti, social e informazioni legali
  */
+import { useTranslation } from "react-i18next";
 import { contactInfo } from "@/lib/data";
 import { Mail, MapPin, Facebook, Instagram, Phone } from "lucide-react";
 import { Link } from "wouter";
+import { useLanguage } from "@/hooks/useLanguage";
+import LanguageSwitcher from "@/components/LanguageSwitcher";
 
 export default function Footer() {
+  const { t } = useTranslation();
+  const lang = useLanguage();
+
+  const erogazioniHref =
+    lang === "it"
+      ? "/it/informativa-erogazioni-pubbliche"
+      : "/en/public-grants";
+
   return (
     <footer id="contatti" className="bg-[#2C2C2C] text-white/80">
       {/* Main footer */}
@@ -25,8 +36,7 @@ export default function Footer() {
               className="text-white/50 text-sm leading-relaxed"
               style={{ fontFamily: "var(--font-body)", fontWeight: 300 }}
             >
-              Agriturismo immerso nel verde della campagna trevigiana,
-              a pochi minuti dal centro storico di Treviso.
+              {t("footer.tagline")}
             </p>
           </div>
 
@@ -36,7 +46,7 @@ export default function Footer() {
               className="text-xs tracking-[0.2em] uppercase text-[#C4A265] mb-6"
               style={{ fontFamily: "var(--font-body)" }}
             >
-              Contatti
+              {t("footer.contatti")}
             </h4>
             <div className="space-y-4">
               <a
@@ -71,7 +81,7 @@ export default function Footer() {
               className="text-xs tracking-[0.2em] uppercase text-[#C4A265] mb-6"
               style={{ fontFamily: "var(--font-body)" }}
             >
-              Seguici
+              {t("footer.seguici")}
             </h4>
             <div className="flex gap-4 mb-8">
               <a
@@ -121,30 +131,31 @@ export default function Footer() {
             className="text-xs text-white/30"
             style={{ fontFamily: "var(--font-body)", fontWeight: 300 }}
           >
-            Copyright &copy; {new Date().getFullYear()} Ca' Bianchini – by{" "}
-              <a href="https://performanceflows.com/" target="_blank" rel="noopener noreferrer" className="hover:text-[#C4A265] transition-colors duration-300">Performance Flows</a>
+            {t("footer.copyright", { year: new Date().getFullYear() })}{" "}
+            <a href="https://performanceflows.com/" target="_blank" rel="noopener noreferrer" className="hover:text-[#C4A265] transition-colors duration-300">Performance Flows</a>
           </p>
           <div className="flex items-center gap-4 flex-wrap justify-center sm:justify-end">
+            <LanguageSwitcher variant="text" />
             <Link
-              href="/privacy-policy"
+              href={`/${lang}/privacy-policy`}
               className="text-xs text-white/30 hover:text-[#C4A265] transition-colors duration-300"
               style={{ fontFamily: "var(--font-body)", fontWeight: 300 }}
             >
-              Privacy Policy
+              {t("footer.privacy")}
             </Link>
             <Link
-              href="/cookie-policy"
+              href={`/${lang}/cookie-policy`}
               className="text-xs text-white/30 hover:text-[#C4A265] transition-colors duration-300"
               style={{ fontFamily: "var(--font-body)", fontWeight: 300 }}
             >
-              Cookie Policy
+              {t("footer.cookie")}
             </Link>
             <Link
-              href="/informativa-erogazioni-pubbliche"
+              href={erogazioniHref}
               className="text-xs text-white/30 hover:text-[#C4A265] transition-colors duration-300"
               style={{ fontFamily: "var(--font-body)", fontWeight: 300 }}
             >
-              Erogazioni Pubbliche
+              {t("footer.erogazioni")}
             </Link>
           </div>
         </div>

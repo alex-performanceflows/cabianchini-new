@@ -6,8 +6,11 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { Mail, Phone, MapPin } from "lucide-react";
+import { useTranslation, Trans } from "react-i18next";
 
 export default function ContactSection() {
+  const { t } = useTranslation();
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -47,19 +50,17 @@ export default function ContactSection() {
             transition={{ duration: 0.6 }}
           >
             <p className="text-xs tracking-[0.3em] uppercase text-[#C4A265] mb-4" style={{ fontFamily: "var(--font-body)" }}>
-              Richiedi disponibilità
+              {t("contact_section.label")}
             </p>
             <h2
               className="text-3xl md:text-4xl font-light text-[#2C2C2C] leading-[1.15] mb-8"
               style={{ fontFamily: "var(--font-heading)" }}
             >
-              Organizziamo insieme il tuo soggiorno
+              {t("contact_section.title")}
             </h2>
             <div className="w-10 h-px bg-[#C4A265] mb-8" />
             <p className="text-[#2C2C2C]/65 text-[13px] leading-[1.6] mb-6" style={{ fontFamily: "var(--font-body)", fontWeight: 300 }}>
-              Per informazioni o per richiedere la disponibilità degli appartamenti, potete
-              contattarci compilando il modulo oppure scrivendoci direttamente. Saremo felici
-              di rispondervi e di aiutarvi a organizzare il vostro soggiorno a Ca' Bianchini.
+              {t("contact_section.subtitle")}
             </p>
 
             <div className="space-y-3">
@@ -101,16 +102,25 @@ export default function ContactSection() {
               className="mt-5 text-[13px] text-[#2C2C2C]/60 leading-[1.7]"
               style={{ fontFamily: "var(--font-body)", fontWeight: 300 }}
             >
-              Collaboriamo con{" "}
-              <a
-                href="https://treviso.bike/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-[#C4A265] hover:underline"
-              >
-                Treviso Bike
-              </a>{" "}
-              per il noleggio bici e con un servizio taxi per i vostri spostamenti.
+              <Trans
+                i18nKey="contact_section.servizi_extra"
+                components={{
+                  bike: (
+                    <a
+                      href="https://treviso.bike/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-[#C4A265] hover:underline"
+                    />
+                  ),
+                  tel: (
+                    <a
+                      href="tel:+393473059916"
+                      className="text-[#C4A265] hover:underline"
+                    />
+                  ),
+                }}
+              />
             </p>
           </motion.div>
 
@@ -124,24 +134,56 @@ export default function ContactSection() {
             <form onSubmit={handleSubmit} className="space-y-7">
               <div className="grid grid-cols-2 gap-6">
                 <div>
-                  <label className={labelClass} style={{ fontFamily: "var(--font-body)" }}>Nome e cognome</label>
-                  <input name="name" value={formData.name} onChange={handleChange} placeholder="Mario Rossi" className={inputClass} style={{ fontFamily: "var(--font-body)" }} required />
+                  <label className={labelClass} style={{ fontFamily: "var(--font-body)" }}>
+                    {t("contact_section.form.nome")}
+                  </label>
+                  <input
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    placeholder={t("contact_section.form.nome_placeholder")}
+                    className={inputClass}
+                    style={{ fontFamily: "var(--font-body)" }}
+                    required
+                  />
                 </div>
                 <div>
-                  <label className={labelClass} style={{ fontFamily: "var(--font-body)" }}>Email</label>
-                  <input name="email" type="email" value={formData.email} onChange={handleChange} placeholder="mario@email.com" className={inputClass} style={{ fontFamily: "var(--font-body)" }} required />
+                  <label className={labelClass} style={{ fontFamily: "var(--font-body)" }}>
+                    {t("contact_section.form.email")}
+                  </label>
+                  <input
+                    name="email"
+                    type="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    placeholder={t("contact_section.form.email_placeholder")}
+                    className={inputClass}
+                    style={{ fontFamily: "var(--font-body)" }}
+                    required
+                  />
                 </div>
               </div>
 
               <div className="grid grid-cols-2 gap-6">
                 <div>
-                  <label className={labelClass} style={{ fontFamily: "var(--font-body)" }}>Telefono</label>
-                  <input name="phone" value={formData.phone} onChange={handleChange} placeholder="+39 000 0000000" className={inputClass} style={{ fontFamily: "var(--font-body)" }} />
+                  <label className={labelClass} style={{ fontFamily: "var(--font-body)" }}>
+                    {t("contact_section.form.telefono")}
+                  </label>
+                  <input
+                    name="phone"
+                    value={formData.phone}
+                    onChange={handleChange}
+                    placeholder={t("contact_section.form.telefono_placeholder")}
+                    className={inputClass}
+                    style={{ fontFamily: "var(--font-body)" }}
+                  />
                 </div>
                 <div>
-                  <label className={labelClass} style={{ fontFamily: "var(--font-body)" }}>Appartamento</label>
+                  <label className={labelClass} style={{ fontFamily: "var(--font-body)" }}>
+                    {t("contact_section.form.appartamento")}
+                  </label>
                   <select name="apartment" value={formData.apartment} onChange={handleChange} className={inputClass} style={{ fontFamily: "var(--font-body)" }}>
-                    <option value="">Tutti</option>
+                    <option value="">{t("contact_section.form.tutti")}</option>
                     <option value="Villa Anna">Villa Anna</option>
                     <option value="Villa Bina">Villa Bina</option>
                     <option value="Villa Coco">Villa Coco</option>
@@ -153,23 +195,49 @@ export default function ContactSection() {
 
               <div className="grid grid-cols-2 gap-6">
                 <div>
-                  <label className={labelClass} style={{ fontFamily: "var(--font-body)" }}>Check-in</label>
+                  <label className={labelClass} style={{ fontFamily: "var(--font-body)" }}>
+                    {t("contact_section.form.checkin")}
+                  </label>
                   <input name="checkin" type="date" value={formData.checkin} onChange={handleChange} className={inputClass} style={{ fontFamily: "var(--font-body)" }} />
                 </div>
                 <div>
-                  <label className={labelClass} style={{ fontFamily: "var(--font-body)" }}>Check-out</label>
+                  <label className={labelClass} style={{ fontFamily: "var(--font-body)" }}>
+                    {t("contact_section.form.checkout")}
+                  </label>
                   <input name="checkout" type="date" value={formData.checkout} onChange={handleChange} className={inputClass} style={{ fontFamily: "var(--font-body)" }} />
                 </div>
               </div>
 
               <div>
-                <label className={labelClass} style={{ fontFamily: "var(--font-body)" }}>Numero ospiti</label>
-                <input name="guests" type="number" min="1" max="20" value={formData.guests} onChange={handleChange} placeholder="2" className={inputClass} style={{ fontFamily: "var(--font-body)" }} />
+                <label className={labelClass} style={{ fontFamily: "var(--font-body)" }}>
+                  {t("contact_section.form.ospiti")}
+                </label>
+                <input
+                  name="guests"
+                  type="number"
+                  min="1"
+                  max="20"
+                  value={formData.guests}
+                  onChange={handleChange}
+                  placeholder={t("contact_section.form.ospiti_placeholder")}
+                  className={inputClass}
+                  style={{ fontFamily: "var(--font-body)" }}
+                />
               </div>
 
               <div>
-                <label className={labelClass} style={{ fontFamily: "var(--font-body)" }}>Messaggio</label>
-                <textarea name="message" value={formData.message} onChange={handleChange} rows={4} placeholder="Scrivi qui eventuali richieste o domande..." className={`${inputClass} resize-none`} style={{ fontFamily: "var(--font-body)" }} />
+                <label className={labelClass} style={{ fontFamily: "var(--font-body)" }}>
+                  {t("contact_section.form.messaggio")}
+                </label>
+                <textarea
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
+                  rows={4}
+                  placeholder={t("contact_section.form.messaggio_placeholder")}
+                  className={`${inputClass} resize-none`}
+                  style={{ fontFamily: "var(--font-body)" }}
+                />
               </div>
 
               <button
@@ -177,7 +245,7 @@ export default function ContactSection() {
                 className="w-full border border-[#2C2C2C] text-[#2C2C2C] py-4 text-xs tracking-[0.2em] uppercase hover:bg-[#2C2C2C] hover:text-[#FAFAF7] transition-all duration-300"
                 style={{ fontFamily: "var(--font-body)" }}
               >
-                Invia richiesta
+                {t("contact_section.form.invia")}
               </button>
             </form>
           </motion.div>

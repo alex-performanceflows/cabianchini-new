@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <!-- Home -->
+  <url>
+    <loc>https://cabianchini.com/it</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://cabianchini.com/it"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cabianchini.com/en"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cabianchini.com/it"/>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://cabianchini.com/en</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://cabianchini.com/it"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cabianchini.com/en"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cabianchini.com/it"/>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- Appartamenti / Apartments -->
+  <url>
+    <loc>https://cabianchini.com/it/appartamenti</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://cabianchini.com/it/appartamenti"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cabianchini.com/en/apartments"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cabianchini.com/it/appartamenti"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://cabianchini.com/en/apartments</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://cabianchini.com/it/appartamenti"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cabianchini.com/en/apartments"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cabianchini.com/it/appartamenti"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Villa Anna -->
+  <url>
+    <loc>https://cabianchini.com/it/appartamenti/villa-anna</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://cabianchini.com/it/appartamenti/villa-anna"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cabianchini.com/en/apartments/villa-anna"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cabianchini.com/it/appartamenti/villa-anna"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://cabianchini.com/en/apartments/villa-anna</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://cabianchini.com/it/appartamenti/villa-anna"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cabianchini.com/en/apartments/villa-anna"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cabianchini.com/it/appartamenti/villa-anna"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Villa Bina -->
+  <url>
+    <loc>https://cabianchini.com/it/appartamenti/villa-bina</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://cabianchini.com/it/appartamenti/villa-bina"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cabianchini.com/en/apartments/villa-bina"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cabianchini.com/it/appartamenti/villa-bina"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://cabianchini.com/en/apartments/villa-bina</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://cabianchini.com/it/appartamenti/villa-bina"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cabianchini.com/en/apartments/villa-bina"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cabianchini.com/it/appartamenti/villa-bina"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Villa Coco -->
+  <url>
+    <loc>https://cabianchini.com/it/appartamenti/villa-coco</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://cabianchini.com/it/appartamenti/villa-coco"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cabianchini.com/en/apartments/villa-coco"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cabianchini.com/it/appartamenti/villa-coco"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://cabianchini.com/en/apartments/villa-coco</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://cabianchini.com/it/appartamenti/villa-coco"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cabianchini.com/en/apartments/villa-coco"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cabianchini.com/it/appartamenti/villa-coco"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Villa Arzilla -->
+  <url>
+    <loc>https://cabianchini.com/it/appartamenti/villa-arzilla</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://cabianchini.com/it/appartamenti/villa-arzilla"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cabianchini.com/en/apartments/villa-arzilla"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cabianchini.com/it/appartamenti/villa-arzilla"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://cabianchini.com/en/apartments/villa-arzilla</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://cabianchini.com/it/appartamenti/villa-arzilla"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cabianchini.com/en/apartments/villa-arzilla"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cabianchini.com/it/appartamenti/villa-arzilla"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Alloggio Marina -->
+  <url>
+    <loc>https://cabianchini.com/it/appartamenti/alloggio-marina</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://cabianchini.com/it/appartamenti/alloggio-marina"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cabianchini.com/en/apartments/alloggio-marina"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cabianchini.com/it/appartamenti/alloggio-marina"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://cabianchini.com/en/apartments/alloggio-marina</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://cabianchini.com/it/appartamenti/alloggio-marina"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cabianchini.com/en/apartments/alloggio-marina"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cabianchini.com/it/appartamenti/alloggio-marina"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Dintorni / Surroundings -->
+  <url>
+    <loc>https://cabianchini.com/it/dintorni</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://cabianchini.com/it/dintorni"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cabianchini.com/en/surroundings"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cabianchini.com/it/dintorni"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cabianchini.com/en/surroundings</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://cabianchini.com/it/dintorni"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cabianchini.com/en/surroundings"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cabianchini.com/it/dintorni"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Posizione / Location -->
+  <url>
+    <loc>https://cabianchini.com/it/posizione</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://cabianchini.com/it/posizione"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cabianchini.com/en/location"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cabianchini.com/it/posizione"/>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cabianchini.com/en/location</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://cabianchini.com/it/posizione"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cabianchini.com/en/location"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cabianchini.com/it/posizione"/>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Contatti / Contact -->
+  <url>
+    <loc>https://cabianchini.com/it/contatti</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://cabianchini.com/it/contatti"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cabianchini.com/en/contact"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cabianchini.com/it/contatti"/>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cabianchini.com/en/contact</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://cabianchini.com/it/contatti"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cabianchini.com/en/contact"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cabianchini.com/it/contatti"/>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+</urlset>

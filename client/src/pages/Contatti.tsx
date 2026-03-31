@@ -5,11 +5,17 @@
  * NO pre-footer prenotazione, NO modulo appartamenti
  */
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import SeoHead from "@/components/SeoHead";
+import { useLanguage } from "@/hooks/useLanguage";
 import { MapPin, Phone, Mail, Clock, Facebook, Instagram } from "lucide-react";
 
 export default function Contatti() {
+  const { t } = useTranslation();
+  useLanguage();
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -35,9 +41,10 @@ export default function Contatti() {
   return (
     <div className="min-h-screen bg-[#FAFAF7]">
       <Header />
+      <SeoHead page="contatti" />
 
       {/* Hero image full-screen */}
-      <section className="relative h-screen overflow-hidden">
+      <section className="relative h-screen overflow-hidden" data-hero="true">
         <img
           src="/images/header-contatti.webp"
           alt="Ca' Bianchini contatti"
@@ -52,7 +59,7 @@ export default function Contatti() {
           className="text-3xl md:text-4xl font-light leading-[1.15] mb-6"
           style={{ fontFamily: "var(--font-heading)", color: "#2C2C2C" }}
         >
-          Contatti
+          {t("contatti.heroTitle")}
         </h1>
         <div className="w-10 h-px bg-[#C4A265] mx-auto mb-8" />
         <p className="text-[13px] text-[#5a5a5a] leading-[1.6] max-w-2xl mx-auto" style={{ fontFamily: "var(--font-body)", fontWeight: 300 }}>
@@ -73,7 +80,7 @@ export default function Contatti() {
               className="text-xs tracking-[0.2em] uppercase text-[#C4A265] mb-2"
               style={{ fontFamily: "'Source Sans 3', sans-serif" }}
             >
-              Indirizzo
+              {t("posizione.address_label")}
             </h3>
             <p className="text-[#2C2C2C] text-[13px] leading-[1.6]" style={{ fontFamily: "'Source Sans 3', sans-serif" }}>
               Via Bianchini, 10<br />
@@ -186,17 +193,17 @@ export default function Contatti() {
           {/* Form generico */}
           <div className="bg-white p-8 lg:p-12">
             <p className="text-xs tracking-[0.2em] text-[#C4A265] uppercase mb-3" style={{ fontFamily: "'Source Sans 3', sans-serif" }}>
-              Scrivici
+              {t("contatti.scrivici")}
             </p>
             <h2
               className="text-3xl font-light mb-2"
               style={{ fontFamily: "'Cormorant Garamond', serif", color: "#2C2C2C" }}
             >
-              Invia un messaggio
+              {t("contatti.title")}
             </h2>
             <div className="w-8 h-px bg-[#C4A265] mb-6" />
             <p className="text-sm text-[#5a5a5a] mb-8 leading-relaxed" style={{ fontFamily: "'Source Sans 3', sans-serif" }}>
-              Compila il modulo per qualsiasi richiesta di informazioni. Ti risponderemo nel più breve tempo possibile.
+              {t("contatti.subtitle")}
             </p>
 
             {submitted ? (
@@ -216,7 +223,7 @@ export default function Contatti() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                   <div>
                     <label className="block text-xs tracking-[0.15em] uppercase text-[#5a5a5a] mb-2" style={{ fontFamily: "'Source Sans 3', sans-serif" }}>
-                      Nome e cognome *
+                      {t("contatti.form.nome")} *
                     </label>
                     <input
                       type="text"
@@ -224,14 +231,14 @@ export default function Contatti() {
                       required
                       value={formData.name}
                       onChange={handleChange}
-                      placeholder="Mario Rossi"
+                      placeholder={t("contatti.form.nome_placeholder")}
                       className="w-full border border-[#e8e4dc] bg-[#FAFAF7] px-4 py-3 text-sm text-[#2C2C2C] placeholder-[#b0a898] focus:outline-none focus:border-[#C4A265] transition-colors"
                       style={{ fontFamily: "'Source Sans 3', sans-serif" }}
                     />
                   </div>
                   <div>
                     <label className="block text-xs tracking-[0.15em] uppercase text-[#5a5a5a] mb-2" style={{ fontFamily: "'Source Sans 3', sans-serif" }}>
-                      Email *
+                      {t("contatti.form.email")} *
                     </label>
                     <input
                       type="email"
@@ -239,7 +246,7 @@ export default function Contatti() {
                       required
                       value={formData.email}
                       onChange={handleChange}
-                      placeholder="mario@email.com"
+                      placeholder={t("contatti.form.email_placeholder")}
                       className="w-full border border-[#e8e4dc] bg-[#FAFAF7] px-4 py-3 text-sm text-[#2C2C2C] placeholder-[#b0a898] focus:outline-none focus:border-[#C4A265] transition-colors"
                       style={{ fontFamily: "'Source Sans 3', sans-serif" }}
                     />
@@ -249,14 +256,14 @@ export default function Contatti() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                   <div>
                     <label className="block text-xs tracking-[0.15em] uppercase text-[#5a5a5a] mb-2" style={{ fontFamily: "'Source Sans 3', sans-serif" }}>
-                      Telefono
+                      {t("contatti.form.telefono")}
                     </label>
                     <input
                       type="tel"
                       name="phone"
                       value={formData.phone}
                       onChange={handleChange}
-                      placeholder="+39 000 0000000"
+                      placeholder={t("contatti.form.telefono_placeholder")}
                       className="w-full border border-[#e8e4dc] bg-[#FAFAF7] px-4 py-3 text-sm text-[#2C2C2C] placeholder-[#b0a898] focus:outline-none focus:border-[#C4A265] transition-colors"
                       style={{ fontFamily: "'Source Sans 3', sans-serif" }}
                     />
@@ -284,7 +291,7 @@ export default function Contatti() {
 
                 <div>
                   <label className="block text-xs tracking-[0.15em] uppercase text-[#5a5a5a] mb-2" style={{ fontFamily: "'Source Sans 3', sans-serif" }}>
-                    Messaggio *
+                    {t("contatti.form.messaggio")} *
                   </label>
                   <textarea
                     name="message"
@@ -292,7 +299,7 @@ export default function Contatti() {
                     value={formData.message}
                     onChange={handleChange}
                     rows={5}
-                    placeholder="Scrivi qui la tua richiesta o domanda..."
+                    placeholder={t("contatti.form.messaggio_placeholder")}
                     className="w-full border border-[#e8e4dc] bg-[#FAFAF7] px-4 py-3 text-sm text-[#2C2C2C] placeholder-[#b0a898] focus:outline-none focus:border-[#C4A265] transition-colors resize-none"
                     style={{ fontFamily: "'Source Sans 3', sans-serif" }}
                   />
@@ -303,11 +310,11 @@ export default function Contatti() {
                   className="w-full bg-[#2C2C2C] text-[#FAFAF7] py-4 text-xs tracking-[0.25em] uppercase hover:bg-[#C4A265] transition-colors duration-300"
                   style={{ fontFamily: "'Source Sans 3', sans-serif" }}
                 >
-                  Invia messaggio
+                  {t("contatti.form.invia")}
                 </button>
 
                 <p className="text-xs text-[#b0a898] text-center" style={{ fontFamily: "'Source Sans 3', sans-serif" }}>
-                  In alternativa scrivi direttamente a{" "}
+                  {t("contatti.alternativa")}{" "}
                   <a href="mailto:info@cabianchini.com" className="text-[#C4A265] hover:underline">
                     info@cabianchini.com
                   </a>
@@ -326,7 +333,7 @@ export default function Contatti() {
             className="text-xs tracking-[0.2em] uppercase text-[#5a5a5a] hover:text-[#C4A265] transition-colors"
             style={{ fontFamily: "'Source Sans 3', sans-serif" }}
           >
-            Apri in Google Maps →
+            {t("contatti.apri_maps")}
           </a>
         </div>
       </section>

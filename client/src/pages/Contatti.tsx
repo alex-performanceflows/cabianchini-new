@@ -284,7 +284,7 @@ export default function Contatti() {
                   </div>
                   <div>
                     <label className="block text-xs tracking-[0.15em] uppercase text-[#5a5a5a] mb-2" style={{ fontFamily: "'Source Sans 3', sans-serif" }}>
-                      Oggetto
+                      {t("contatti.oggetto_label")}
                     </label>
                     <select
                       name="subject"
@@ -293,12 +293,12 @@ export default function Contatti() {
                       className="w-full border border-[#e8e4dc] bg-[#FAFAF7] px-4 py-3 text-sm text-[#2C2C2C] focus:outline-none focus:border-[#C4A265] transition-colors appearance-none"
                       style={{ fontFamily: "'Source Sans 3', sans-serif" }}
                     >
-                      <option value="">Seleziona...</option>
-                      <option value="Informazioni generali">Informazioni generali</option>
-                      <option value="Disponibilità appartamenti">Disponibilità appartamenti</option>
-                      <option value="Prezzi e tariffe">Prezzi e tariffe</option>
-                      <option value="Come raggiungerci">Come raggiungerci</option>
-                      <option value="Altro">Altro</option>
+                      <option value="">{t("contatti.oggetto_placeholder")}</option>
+                      <option value="Informazioni generali">{t("contatti.oggetto_info")}</option>
+                      <option value="Disponibilità appartamenti">{t("contatti.oggetto_disponibilita")}</option>
+                      <option value="Prezzi e tariffe">{t("contatti.oggetto_prezzi")}</option>
+                      <option value="Come raggiungerci">{t("contatti.oggetto_come")}</option>
+                      <option value="Altro">{t("contatti.oggetto_altro")}</option>
                     </select>
                   </div>
                 </div>

@@ -69,24 +69,19 @@ function buildBookingSubject(data: Record<string, string>): string {
   return `Nuova richiesta — ${parts.join(" · ")}`;
 }
 
-export default async function handler(req: Request): Promise<Response> {
+// Node.js runtime handler (required by Vercel)
+export default async function handler(req: any, res: any) {
   if (req.method !== "POST") {
-    return new Response(JSON.stringify({ error: "Method not allowed" }), { status: 405 });
+    return res.status(405).json({ error: "Method not allowed" });
   }
 
-  let data: Record<string, string>;
-  try {
-    data = await req.json();
-  } catch {
-    return new Response(JSON.stringify({ error: "Invalid JSON" }), { status: 400 });
+  const data: Record<string, string> = req.body;
+
+  if (!data?.name || !data?.email) {
+    return res.status(400).json({ error: "Nome e email sono obbligatori" });
   }
 
-  const { type, name, email } = data;
-  if (!name || !email) {
-    return new Response(JSON.stringify({ error: "Nome e email sono obbligatori" }), { status: 400 });
-  }
-
-  const isBooking = type === "booking";
+  const isBooking = data.type === "booking";
 
   const subject = isBooking
     ? buildBookingSubject(data)
@@ -94,18 +89,18 @@ export default async function handler(req: Request): Promise<Response> {
 
   const text = isBooking ? buildBookingText(data) : buildContactText(data);
 
-  try {
-    await resend.emails.send({
-      from: FROM,
-      to: TO,
-      replyTo: email,
-      subject,
-      text,
-    });
+  const { error } = await resend.emails.send({
+    from: FROM,
+    to: TO,
+    replyTo: data.email,
+    subject,
+    text,
+  });
 
-    return new Response(JSON.stringify({ ok: true }), { status: 200 });
-  } catch (err) {
-    console.error("Resend error:", err);
-    return new Response(JSON.stringify({ error: "Errore invio email" }), { status: 500 });
+  if (error) {
+    console.error("Resend error:", error);
+    return res.status(500).json({ error: "Errore invio email" });
   }
+
+  return res.status(200).json({ ok: true });
 }

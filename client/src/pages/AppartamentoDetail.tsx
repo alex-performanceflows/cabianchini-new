@@ -316,6 +316,17 @@ export default function AppartamentoDetail() {
               </motion.div>
             ))}
           </div>
+          {/* Nota informativa */}
+          <motion.p
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+            className="text-center text-[11px] text-[#2C2C2C]/40 mt-14 tracking-wide"
+            style={{ fontFamily: "var(--font-body)" }}
+          >
+            {t("appartamenti.note")}
+          </motion.p>
         </div>
       </section>
 

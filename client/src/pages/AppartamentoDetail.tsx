@@ -243,20 +243,13 @@ export default function AppartamentoDetail() {
               ))}
             </div>
 
-            {/* Tags */}
-            {(apt.disabledAccess || apt.petsAllowed) && (
+            {/* Tags — solo accessibilità disabili, non animali (info in nota servizi) */}
+            {apt.disabledAccess && (
               <div className="flex flex-wrap justify-center gap-3 mt-8">
-                {apt.disabledAccess && (
-                  <span className="inline-flex items-center gap-1.5 text-xs text-[#2C2C2C]/60 border border-[#2C2C2C]/20 px-3 py-1.5" style={{ fontFamily: "var(--font-body)" }}>
-                    <Accessibility size={14} />
-                    {t("appartamenti.detail.disabili")}
-                  </span>
-                )}
-                {apt.petsAllowed && (
-                  <span className="inline-flex items-center gap-1.5 text-xs text-[#2C2C2C]/60 border border-[#2C2C2C]/20 px-3 py-1.5" style={{ fontFamily: "var(--font-body)" }}>
-                    {t("appartamenti.detail.animali")}
-                  </span>
-                )}
+                <span className="inline-flex items-center gap-1.5 text-xs text-[#2C2C2C]/60 border border-[#2C2C2C]/20 px-3 py-1.5" style={{ fontFamily: "var(--font-body)" }}>
+                  <Accessibility size={14} />
+                  {t("appartamenti.detail.disabili")}
+                </span>
               </div>
             )}
 

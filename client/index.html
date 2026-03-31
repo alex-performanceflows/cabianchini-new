@@ -22,11 +22,17 @@
     <meta property="og:locale" content="it_IT" />
     <meta property="og:url" content="https://cabianchini.com/it" />
     <link rel="manifest" href="/site.webmanifest" />
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-91KYENJ38X"></script>
+    <!-- Google Analytics — Consent Mode v2 -->
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
+      gtag('consent', 'default', { analytics_storage: 'denied' });
+      if (localStorage.getItem('cb_cookie_consent') === 'accepted') {
+        gtag('consent', 'update', { analytics_storage: 'granted' });
+      }
+    </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-91KYENJ38X"></script>
+    <script>
       gtag('js', new Date());
       gtag('config', 'G-91KYENJ38X');
     </script>

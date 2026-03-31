@@ -4,14 +4,16 @@
  */
 import { useState, useEffect } from "react";
 import { Link } from "wouter";
+import { useTranslation } from "react-i18next";
+import { grantAnalytics, denyAnalytics } from "@/lib/analytics";
 
 export default function CookieBanner() {
+  const { t } = useTranslation();
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
     const consent = localStorage.getItem("cb_cookie_consent");
     if (!consent) {
-      // Mostra il banner dopo un breve delay per non bloccare il rendering
       const timer = setTimeout(() => setVisible(true), 800);
       return () => clearTimeout(timer);
     }
@@ -19,11 +21,13 @@ export default function CookieBanner() {
 
   const handleAccept = () => {
     localStorage.setItem("cb_cookie_consent", "accepted");
+    grantAnalytics();
     setVisible(false);
   };
 
   const handleDecline = () => {
     localStorage.setItem("cb_cookie_consent", "declined");
+    denyAnalytics();
     setVisible(false);
   };
 
@@ -36,19 +40,12 @@ export default function CookieBanner() {
           className="text-[13px] leading-[1.7] flex-1"
           style={{ fontFamily: "var(--font-body)", fontWeight: 300 }}
         >
-          Questo sito utilizza cookie tecnici e di terze parti per migliorare la tua esperienza di navigazione.
-          Per maggiori informazioni consulta la nostra{" "}
-          <Link
-            href="/cookie-policy"
-            className="text-[#C4A265] hover:underline"
-          >
+          {t("cookie_banner.text")}{" "}
+          <Link href="/it/cookie-policy" className="text-[#C4A265] hover:underline">
             Cookie Policy
           </Link>{" "}
-          e la{" "}
-          <Link
-            href="/privacy-policy"
-            className="text-[#C4A265] hover:underline"
-          >
+          &amp;{" "}
+          <Link href="/it/privacy-policy" className="text-[#C4A265] hover:underline">
             Privacy Policy
           </Link>.
         </p>
@@ -58,14 +55,14 @@ export default function CookieBanner() {
             className="text-xs tracking-[0.15em] uppercase border border-white/30 text-white/60 px-5 py-2.5 hover:border-white hover:text-white transition-all duration-300"
             style={{ fontFamily: "var(--font-body)" }}
           >
-            Rifiuta
+            {t("cookie_banner.rifiuta")}
           </button>
           <button
             onClick={handleAccept}
             className="text-xs tracking-[0.15em] uppercase bg-[#C4A265] text-white px-5 py-2.5 hover:bg-[#b5934f] transition-all duration-300"
             style={{ fontFamily: "var(--font-body)" }}
           >
-            Accetta
+            {t("cookie_banner.accetta")}
           </button>
         </div>
       </div>

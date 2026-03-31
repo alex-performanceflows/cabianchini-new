@@ -7,6 +7,7 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import { Mail, Phone, MapPin } from "lucide-react";
 import { useTranslation, Trans } from "react-i18next";
+import { trackEvent } from "@/lib/analytics";
 
 export default function ContactSection() {
   const { t } = useTranslation();
@@ -36,7 +37,12 @@ export default function ContactSection() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ type: "booking", ...formData }),
       });
-      setStatus(res.ok ? "sent" : "error");
+      if (res.ok) {
+        trackEvent("booking_request", { apartment: formData.apartment || "non specificato" });
+        setStatus("sent");
+      } else {
+        setStatus("error");
+      }
     } catch {
       setStatus("error");
     }

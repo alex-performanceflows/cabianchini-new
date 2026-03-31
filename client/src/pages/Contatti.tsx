@@ -6,6 +6,7 @@
  */
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
+import { trackEvent } from "@/lib/analytics";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SeoHead from "@/components/SeoHead";
@@ -40,7 +41,12 @@ export default function Contatti() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ type: "contact", ...formData }),
       });
-      setStatus(res.ok ? "sent" : "error");
+      if (res.ok) {
+        trackEvent("contact_message", { subject: formData.subject || "non specificato" });
+        setStatus("sent");
+      } else {
+        setStatus("error");
+      }
     } catch {
       setStatus("error");
     }

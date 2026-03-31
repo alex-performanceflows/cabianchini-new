@@ -77,6 +77,7 @@ function ApartmentSlider({ images, name }: { images: string[]; name: string }) {
         src={images[current]}
         alt={`${name} - ${current + 1}`}
         className="w-full h-full object-cover absolute inset-0 transition-opacity duration-500"
+        loading="lazy"
       />
       {images.length > 1 && (
         <>

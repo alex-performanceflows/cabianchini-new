@@ -40,6 +40,7 @@ export default function HeroSlider() {
             src={heroImages[current]}
             alt="Ca' Bianchini Agriturismo"
             className="w-full h-full object-cover hero-slide"
+            fetchPriority={current === 0 ? "high" : "auto"}
           />
         </motion.div>
       </AnimatePresence>

@@ -55,6 +55,7 @@ export default function HomeIntro() {
           src="/images/full-length-location.webp"
           alt="Ca' Bianchini agriturismo"
           className="w-full h-auto block"
+          loading="lazy"
         />
       </motion.div>
     </section>

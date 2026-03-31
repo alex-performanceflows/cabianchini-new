@@ -73,6 +73,7 @@ export default function SoggiornSection() {
                       src={slide.src}
                       alt={slide.alt}
                       className="w-full h-64 md:h-96 object-cover hover:scale-[1.03] transition-transform duration-700"
+                      loading="lazy"
                     />
                   </div>
                 </CarouselItem>

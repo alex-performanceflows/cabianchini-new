@@ -39,6 +39,7 @@ function DetailHeroSlider({ images, name }: { images: string[]; name: string }) 
             src={images[current]}
             alt={`${name} - ${current + 1}`}
             className="w-full h-full object-cover hero-slide"
+            fetchPriority={current === 0 ? "high" : "auto"}
           />
         </motion.div>
       </AnimatePresence>
@@ -112,6 +113,7 @@ function OtherApartments({ currentId, lang }: { currentId: string; lang: string 
                   src={other.coverImage}
                   alt={other.name}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                  loading="lazy"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
                 <div className="absolute bottom-5 left-5 right-5">
@@ -347,6 +349,7 @@ export default function AppartamentoDetail() {
                   src={apt.floorPlanImage}
                   alt={`${t("appartamenti.detail.floorplan")} ${apt.name}`}
                   className="w-full h-[250px] md:h-[350px] object-contain p-4"
+                  loading="lazy"
                 />
               </motion.div>
             )}
@@ -363,6 +366,7 @@ export default function AppartamentoDetail() {
                   src={img}
                   alt={`${apt.name} - ${i + 1}`}
                   className="w-full h-[250px] md:h-[350px] object-cover"
+                  loading="lazy"
                 />
               </motion.div>
             ))}
@@ -379,6 +383,7 @@ export default function AppartamentoDetail() {
                   src={img}
                   alt={`${apt.name} - extra ${i + 1}`}
                   className="w-full h-[250px] md:h-[350px] object-cover"
+                  loading="lazy"
                 />
               </motion.div>
             ))}

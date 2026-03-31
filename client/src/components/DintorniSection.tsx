@@ -76,6 +76,7 @@ export default function DintorniSection() {
                 src={slide.src}
                 alt={slide.alt}
                 className="w-full h-48 md:h-64 lg:h-72 object-cover"
+                loading="lazy"
               />
             </motion.div>
           ))}

@@ -48,6 +48,7 @@ export default function ApartmentCard({ apartment, index }: Props) {
               className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${
                 i === currentImage ? "opacity-100" : "opacity-0"
               }`}
+              loading="lazy"
             />
           ))}
 

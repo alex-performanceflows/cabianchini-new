@@ -185,6 +185,7 @@ export default function Posizione() {
         src="/images/sfumatura-grano.webp"
         alt="Campo di grano"
         className="w-full h-auto block"
+        loading="lazy"
       />
 
       {/* Come arrivare — 3 colonne */}

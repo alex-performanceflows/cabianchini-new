@@ -63,6 +63,7 @@ export default function ApartmentsPreview() {
           src="/images/home_ca-bianchini.webp"
           alt="Ca' Bianchini — vista dalla piscina"
           className="w-full h-[400px] md:h-[500px] object-cover"
+          loading="lazy"
         />
       </motion.div>
     </section>

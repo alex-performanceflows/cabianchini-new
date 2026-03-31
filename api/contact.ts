@@ -1,7 +1,3 @@
-import { Resend } from "resend";
-
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 const TO = "info@cabianchini.com";
 const FROM = "Ca' Bianchini <form@cabianchini.com>";
 const LINE = "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━";
@@ -69,15 +65,20 @@ function buildBookingSubject(data: Record<string, string>): string {
   return `Nuova richiesta — ${parts.join(" · ")}`;
 }
 
-// Node.js runtime handler (required by Vercel)
-export default async function handler(req: any, res: any) {
+module.exports = async function handler(req: any, res: any) {
   if (req.method !== "POST") {
     return res.status(405).json({ error: "Method not allowed" });
   }
 
-  const data: Record<string, string> = req.body;
+  const apiKey = process.env.RESEND_API_KEY;
+  if (!apiKey) {
+    console.error("RESEND_API_KEY not set");
+    return res.status(500).json({ error: "Email service not configured" });
+  }
 
-  if (!data?.name || !data?.email) {
+  const data: Record<string, string> = req.body || {};
+
+  if (!data.name || !data.email) {
     return res.status(400).json({ error: "Nome e email sono obbligatori" });
   }
 
@@ -89,18 +90,31 @@ export default async function handler(req: any, res: any) {
 
   const text = isBooking ? buildBookingText(data) : buildContactText(data);
 
-  const { error } = await resend.emails.send({
-    from: FROM,
-    to: TO,
-    replyTo: data.email,
-    subject,
-    text,
-  });
+  try {
+    const response = await fetch("https://api.resend.com/emails", {
+      method: "POST",
+      headers: {
+        "Authorization": `Bearer ${apiKey}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        from: FROM,
+        to: TO,
+        reply_to: data.email,
+        subject,
+        text,
+      }),
+    });
 
-  if (error) {
-    console.error("Resend error:", error);
-    return res.status(500).json({ error: "Errore invio email" });
+    if (!response.ok) {
+      const err = await response.json();
+      console.error("Resend API error:", err);
+      return res.status(500).json({ error: "Errore invio email" });
+    }
+
+    return res.status(200).json({ ok: true });
+  } catch (err) {
+    console.error("Fetch error:", err);
+    return res.status(500).json({ error: "Errore di rete" });
   }
-
-  return res.status(200).json({ ok: true });
-}
+};

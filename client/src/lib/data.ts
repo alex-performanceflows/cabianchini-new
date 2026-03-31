@@ -28,7 +28,7 @@ export const apartments: Apartment[] = [
     beds: "2 + 2 + 2 + 1 + 1",
     bathrooms: 4,
     description: "Villa Anna è l'appartamento più ampio di Ca' Bianchini, sviluppato su due livelli con ambienti luminosi. La cucina semi-professionale e gli ampi spazi lo rendono ideale per chi desidera soggiornare insieme con comodità.",
-    features: ["Cucina semi-professionale", "Portico frontale", "Sala lettura", "Due livelli", "Riscaldamento/raffrescamento"],
+    features: ["Cucina semi-professionale", "Portico frontale", "Sala lettura", "Due livelli", "Pompa di calore"],
     images: [
       `${CDN}/anna_1_7c5f01a6.jpg`,
       `${CDN}/anna_2_ae7ab304.jpg`,
@@ -46,7 +46,7 @@ export const apartments: Apartment[] = [
     beds: "2 + 2 + 2",
     bathrooms: 4,
     description: "Villa Bina si sviluppa su due livelli e dispone di tre camere. Un appartamento luminoso e accogliente, con accesso agli spazi esterni sul retro.",
-    features: ["Tre camere", "Spazi esterni sul retro", "Balcone condiviso", "Due livelli", "Riscaldamento/raffrescamento"],
+    features: ["Tre camere", "Spazi esterni sul retro", "Balcone condiviso", "Due livelli", "Pompa di calore"],
     images: [
       "/images/appartamenti/villa-bina/Villa-Bina_Slider1.webp",
       "/images/appartamenti/villa-bina/Villa-Bina_Slider2.webp",
@@ -73,7 +73,7 @@ export const apartments: Apartment[] = [
     beds: "2 + 2",
     bathrooms: 3,
     description: "Villa Coco si sviluppa su due livelli e dispone di due camere. Ambienti luminosi con accesso agli spazi esterni sul retro.",
-    features: ["Due camere", "Spazi esterni sul retro", "Due livelli", "Riscaldamento/raffrescamento"],
+    features: ["Due camere", "Spazi esterni sul retro", "Due livelli", "Pompa di calore"],
     images: [
       `${CDN}/coco_1_008a6686.jpg`,
       `${CDN}/coco_2_6e46c841.jpg`,
@@ -90,7 +90,7 @@ export const apartments: Apartment[] = [
     beds: "2 + 1",
     bathrooms: 2,
     description: "Villa Arzilla si sviluppa su due livelli e dispone di bagno attrezzato per persone con disabilità motoria. Ambienti luminosi con accesso agli spazi esterni sul retro.",
-    features: ["Accessibile disabili", "Spazi esterni sul retro", "Balcone condiviso", "Due livelli", "Riscaldamento/raffrescamento"],
+    features: ["Accessibile disabili", "Spazi esterni sul retro", "Balcone condiviso", "Due livelli", "Pompa di calore"],
     images: Array.from({ length: 10 }, (_, i) => `/images/villa-arzilla/Villa-Arzilla_Slider-${i + 1}.webp`),
     petsAllowed: true,
     disabledAccess: true,
@@ -103,7 +103,7 @@ export const apartments: Apartment[] = [
     beds: "2",
     bathrooms: 1,
     description: "Alloggio Marina si sviluppa interamente al piano terra ed è situato in una struttura adiacente alla casa principale. Dispone di un portico con tavolino, ideale per godersi la tranquillità della campagna.",
-    features: ["Piano terra", "Portico con tavolino", "Struttura indipendente", "Riscaldamento/raffrescamento"],
+    features: ["Piano terra", "Portico con tavolino", "Struttura indipendente", "Pompa di calore"],
     images: [
       `${CDN}/marina_1_e481995b.jpg`,
       `${CDN}/marina_2_71acb501.jpg`,

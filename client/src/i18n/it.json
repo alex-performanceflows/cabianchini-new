@@ -45,7 +45,7 @@
     "services": {
       "title": "Servizi inclusi",
       "cucina": "Cucina attrezzata",
-      "riscaldamento": "Riscaldamento e raffrescamento",
+      "riscaldamento": "Pompa di calore (riscaldamento e raffrescamento)",
       "wifi": "Wi-Fi",
       "biancheria": "Biancheria da letto e da bagno",
       "asciugamani": "Asciugamani per piscina",
@@ -70,7 +70,7 @@
       "dettagli": "Dettagli",
       "floorplan": "Planimetria"
     },
-    "note": "Sistema di climatizzazione a pompe di calore (senza aria condizionata) · Lavanderia in comune"
+    "note": "Sistema di climatizzazione a pompe di calore (senza aria condizionata) · Lavanderia in comune · Animali di piccola e media taglia ammessi su richiesta (50€)"
   },
   "dintorni": {
     "heroTitle": "I dintorni",

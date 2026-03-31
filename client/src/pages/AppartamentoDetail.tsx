@@ -326,7 +326,7 @@ export default function AppartamentoDetail() {
         </div>
       </section>
 
-      {/* Photo gallery grid — planimetria come prima foto, poi le foto dell'appartamento */}
+      {/* Photo gallery grid — planimetria come prima foto, poi le foto dell'appartamento, poi galleryExtras */}
       {(apt.floorPlanImage || apt.images.length > 2) && (
         <section className="max-w-6xl mx-auto px-6 lg:px-10 py-10">
           <div className="grid grid-cols-2 gap-3">
@@ -358,6 +358,22 @@ export default function AppartamentoDetail() {
                 <img
                   src={img}
                   alt={`${apt.name} - ${i + 1}`}
+                  className="w-full h-[250px] md:h-[350px] object-cover"
+                />
+              </motion.div>
+            ))}
+            {/* Foto extra solo gallery (non nello slider) */}
+            {apt.galleryExtras?.map((img, i) => (
+              <motion.div
+                key={`extra-${i}`}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: (apt.images.slice(0, 5).length + i) * 0.08 }}
+              >
+                <img
+                  src={img}
+                  alt={`${apt.name} - extra ${i + 1}`}
                   className="w-full h-[250px] md:h-[350px] object-cover"
                 />
               </motion.div>

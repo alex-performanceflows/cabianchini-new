@@ -45,7 +45,7 @@
     "services": {
       "title": "Included services",
       "cucina": "Fully equipped kitchen",
-      "riscaldamento": "Heating and cooling system",
+      "riscaldamento": "Heat pump (heating & cooling)",
       "wifi": "Wi-Fi",
       "biancheria": "Bed and bath linen",
       "asciugamani": "Pool towels",
@@ -70,7 +70,7 @@
       "dettagli": "Details",
       "floorplan": "Floor plan"
     },
-    "note": "Heat pump climate control system (no air conditioning) · Shared laundry"
+    "note": "Heat pump climate control system (no air conditioning) · Shared laundry · Small and medium pets allowed on request (€50 fee)"
   },
   "dintorni": {
     "heroTitle": "Surroundings",

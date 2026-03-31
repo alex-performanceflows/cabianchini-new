@@ -23,7 +23,7 @@ export default function Contatti() {
     subject: "",
     message: "",
   });
-  const [submitted, setSubmitted] = useState(false);
+  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
@@ -31,11 +31,19 @@ export default function Contatti() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const mailtoBody = `Nome: ${formData.name}%0AEmail: ${formData.email}%0ATelefono: ${formData.phone}%0AOggetto: ${formData.subject}%0A%0AMessaggio:%0A${formData.message}`;
-    window.location.href = `mailto:info@cabianchini.com?subject=${encodeURIComponent(formData.subject || "Richiesta di informazioni")}&body=${mailtoBody}`;
-    setSubmitted(true);
+    setStatus("sending");
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ type: "contact", ...formData }),
+      });
+      setStatus(res.ok ? "sent" : "error");
+    } catch {
+      setStatus("error");
+    }
   };
 
   return (
@@ -206,7 +214,7 @@ export default function Contatti() {
               {t("contatti.subtitle")}
             </p>
 
-            {submitted ? (
+            {status === "sent" ? (
               <div className="text-center py-12">
                 <div className="w-12 h-12 bg-[#C4A265]/10 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Mail size={20} className="text-[#C4A265]" />
@@ -305,12 +313,19 @@ export default function Contatti() {
                   />
                 </div>
 
+                {status === "error" && (
+                  <p className="text-xs text-red-500 text-center" style={{ fontFamily: "'Source Sans 3', sans-serif" }}>
+                    Errore nell'invio. Scrivi direttamente a{" "}
+                    <a href="mailto:info@cabianchini.com" className="underline">info@cabianchini.com</a>.
+                  </p>
+                )}
                 <button
                   type="submit"
-                  className="w-full bg-[#2C2C2C] text-[#FAFAF7] py-4 text-xs tracking-[0.25em] uppercase hover:bg-[#C4A265] transition-colors duration-300"
+                  disabled={status === "sending"}
+                  className="w-full bg-[#2C2C2C] text-[#FAFAF7] py-4 text-xs tracking-[0.25em] uppercase hover:bg-[#C4A265] transition-colors duration-300 disabled:opacity-50"
                   style={{ fontFamily: "'Source Sans 3', sans-serif" }}
                 >
-                  {t("contatti.form.invia")}
+                  {status === "sending" ? "Invio in corso..." : t("contatti.form.invia")}
                 </button>
 
                 <p className="text-xs text-[#b0a898] text-center" style={{ fontFamily: "'Source Sans 3', sans-serif" }}>

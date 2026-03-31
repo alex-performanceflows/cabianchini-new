@@ -21,18 +21,25 @@ export default function ContactSection() {
     guests: "",
     message: "",
   });
+  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const subject = encodeURIComponent("Richiesta disponibilità Ca' Bianchini");
-    const body = encodeURIComponent(
-      `Nome: ${formData.name}\nEmail: ${formData.email}\nTelefono: ${formData.phone}\nAppartamento: ${formData.apartment}\nCheck-in: ${formData.checkin}\nCheck-out: ${formData.checkout}\nOspiti: ${formData.guests}\n\nMessaggio:\n${formData.message}`
-    );
-    window.location.href = `mailto:info@cabianchini.com?subject=${subject}&body=${body}`;
+    setStatus("sending");
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ type: "booking", ...formData }),
+      });
+      setStatus(res.ok ? "sent" : "error");
+    } catch {
+      setStatus("error");
+    }
   };
 
   const inputClass = "w-full border-0 border-b border-[#2C2C2C]/20 bg-transparent py-3 text-sm text-[#2C2C2C] placeholder-[#2C2C2C]/40 focus:outline-none focus:border-[#C4A265] transition-colors duration-300";
@@ -131,6 +138,17 @@ export default function ContactSection() {
             viewport={{ once: true, margin: "-60px" }}
             transition={{ duration: 0.6, delay: 0.15 }}
           >
+            {status === "sent" ? (
+              <div className="flex flex-col justify-center h-full py-16 text-center">
+                <p className="text-2xl font-light text-[#2C2C2C] mb-3" style={{ fontFamily: "var(--font-heading)" }}>
+                  Richiesta inviata
+                </p>
+                <div className="w-8 h-px bg-[#C4A265] mx-auto mb-4" />
+                <p className="text-[13px] text-[#2C2C2C]/60" style={{ fontFamily: "var(--font-body)", fontWeight: 300 }}>
+                  Ti risponderemo al più presto.
+                </p>
+              </div>
+            ) : (
             <form onSubmit={handleSubmit} className="space-y-7">
               <div className="grid grid-cols-2 gap-6">
                 <div>
@@ -240,14 +258,22 @@ export default function ContactSection() {
                 />
               </div>
 
+              {status === "error" && (
+                <p className="text-xs text-red-500 text-center" style={{ fontFamily: "var(--font-body)" }}>
+                  Errore nell'invio. Scrivi direttamente a{" "}
+                  <a href="mailto:info@cabianchini.com" className="underline">info@cabianchini.com</a>.
+                </p>
+              )}
               <button
                 type="submit"
-                className="w-full border border-[#2C2C2C] text-[#2C2C2C] py-4 text-xs tracking-[0.2em] uppercase hover:bg-[#2C2C2C] hover:text-[#FAFAF7] transition-all duration-300"
+                disabled={status === "sending"}
+                className="w-full border border-[#2C2C2C] text-[#2C2C2C] py-4 text-xs tracking-[0.2em] uppercase hover:bg-[#2C2C2C] hover:text-[#FAFAF7] transition-all duration-300 disabled:opacity-50"
                 style={{ fontFamily: "var(--font-body)" }}
               >
-                {t("contact_section.form.invia")}
+                {status === "sending" ? "Invio in corso..." : t("contact_section.form.invia")}
               </button>
             </form>
+            )}
           </motion.div>
         </div>
       </div>

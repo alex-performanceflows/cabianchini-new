@@ -25,8 +25,16 @@ export default function ContactSection() {
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+    const updated = { ...formData, [name]: value };
+    // Se il check-in viene spostato dopo il check-out, resetta il check-out
+    if (name === "checkin" && updated.checkout && value >= updated.checkout) {
+      updated.checkout = "";
+    }
+    setFormData(updated);
   };
+
+  const today = new Date().toISOString().split("T")[0];
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -222,13 +230,13 @@ export default function ContactSection() {
                   <label className={labelClass} style={{ fontFamily: "var(--font-body)" }}>
                     {t("contact_section.form.checkin")}
                   </label>
-                  <input name="checkin" type="date" value={formData.checkin} onChange={handleChange} className={inputClass} style={{ fontFamily: "var(--font-body)" }} />
+                  <input name="checkin" type="date" value={formData.checkin} onChange={handleChange} min={today} className={inputClass} style={{ fontFamily: "var(--font-body)" }} />
                 </div>
                 <div>
                   <label className={labelClass} style={{ fontFamily: "var(--font-body)" }}>
                     {t("contact_section.form.checkout")}
                   </label>
-                  <input name="checkout" type="date" value={formData.checkout} onChange={handleChange} className={inputClass} style={{ fontFamily: "var(--font-body)" }} />
+                  <input name="checkout" type="date" value={formData.checkout} onChange={handleChange} min={formData.checkin || today} className={inputClass} style={{ fontFamily: "var(--font-body)" }} />
                 </div>
               </div>
 

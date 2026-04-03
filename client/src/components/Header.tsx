@@ -140,11 +140,16 @@ export default function Header() {
 
   const handlePrenota = () => {
     setMenuOpen(false);
-    const el = document.getElementById("prenota");
-    if (el) {
-      el.scrollIntoView({ behavior: "smooth" });
+    if (isContatti) {
+      const el = document.getElementById("contatta");
+      if (el) el.scrollIntoView({ behavior: "smooth" });
     } else {
-      navigate(`/${lang}/contatti`);
+      const el = document.getElementById("prenota");
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth" });
+      } else {
+        navigate(`/${lang}/contatti`);
+      }
     }
   };
 
@@ -237,7 +242,7 @@ export default function Header() {
               }`}
               style={{ fontFamily: "var(--font-body)" }}
             >
-              {t("nav.prenota")}
+              {isContatti ? t("nav.contatta") : t("nav.prenota")}
             </button>
 
           </div>
@@ -271,7 +276,7 @@ export default function Header() {
                     className="mt-4 text-xs tracking-[0.2em] uppercase bg-[#8B8B8B] text-white px-8 py-3 text-center transition-all duration-300 hover:bg-[#C4A265]"
                     style={{ fontFamily: "var(--font-body)" }}
                   >
-                    {t("nav.prenota")}
+                    {isContatti ? t("nav.contatta") : t("nav.prenota")}
                   </button>
                   {/* Alternate language flag — solo quella su cui puoi switchare */}
                   <Link

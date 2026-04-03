@@ -2,6 +2,7 @@
   "nav": {
     "menu": "Menu",
     "prenota": "Prenota",
+    "contatta": "Contatta",
     "appartamenti": "Appartamenti",
     "dintorni": "Dintorni",
     "posizione": "Posizione",
@@ -70,7 +71,7 @@
       "dettagli": "Dettagli",
       "floorplan": "Planimetria"
     },
-    "note": "Sistema di climatizzazione a pompe di calore (senza aria condizionata) · Cani ammessi previa richiesta scritta",
+    "note": "Sistema di climatizzazione a pompe di calore (no aria condizionata) · Cani ammessi previa richiesta scritta",
     "checkin_info": "15:00–18:00",
     "checkout_info": "8:30–10:30"
   },

@@ -4,8 +4,9 @@
  * Struttura: Header → Hero testuale → Griglia info contatti → Mappa → Form generico → Footer
  * NO pre-footer prenotazione, NO modulo appartamenti
  */
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
+import { motion, AnimatePresence } from "framer-motion";
 import { trackEvent } from "@/lib/analytics";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -13,9 +14,23 @@ import SeoHead from "@/components/SeoHead";
 import { useLanguage } from "@/hooks/useLanguage";
 import { MapPin, Phone, Mail, Clock, Facebook, Instagram } from "lucide-react";
 
+const heroSlides = [
+  "/images/header-contatti.webp",
+  "/images/header-contatti-piscina.webp",
+];
+
 export default function Contatti() {
   const { t } = useTranslation();
   useLanguage();
+
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, []);
 
   const [formData, setFormData] = useState({
     name: "",
@@ -59,12 +74,29 @@ export default function Contatti() {
 
       {/* Hero image full-screen */}
       <section className="relative h-screen overflow-hidden" data-hero="true">
-        <img
-          src="/images/header-contatti.webp"
-          alt="Ca' Bianchini contatti"
-          className="absolute inset-0 w-full h-full object-cover"
-        />
+        <AnimatePresence>
+          <motion.img
+            key={currentSlide}
+            src={heroSlides[currentSlide]}
+            alt="Ca' Bianchini contatti"
+            className="absolute inset-0 w-full h-full object-cover"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 1.2 }}
+          />
+        </AnimatePresence>
         <div className="absolute inset-0 bg-black/20" />
+        {/* Dot indicators */}
+        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2 z-10">
+          {heroSlides.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => setCurrentSlide(i)}
+              className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${i === currentSlide ? "bg-white w-4" : "bg-white/50"}`}
+            />
+          ))}
+        </div>
       </section>
 
       {/* Intro testuale */}
@@ -187,7 +219,7 @@ export default function Contatti() {
       </section>
 
       {/* Mappa + Form */}
-      <section className="px-6 pb-20 max-w-6xl mx-auto">
+      <section id="contatta" className="px-6 pb-20 max-w-6xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 border border-[#e8e4dc]">
 
           {/* Mappa */}

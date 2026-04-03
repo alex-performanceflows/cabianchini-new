@@ -70,7 +70,9 @@
       "dettagli": "Details",
       "floorplan": "Floor plan"
     },
-    "note": "Heat pump climate control system (no air conditioning) · Dogs allowed upon written request ·Check-in 3:00–6:00 pm (no 24/7 reception) · Check-out 8:30–10:30 am"
+    "note": "Heat pump climate control system (no air conditioning) · Dogs allowed upon written request",
+    "checkin_info": "3:00–6:00 pm · no 24/7 reception",
+    "checkout_info": "8:30–10:30 am"
   },
   "dintorni": {
     "heroTitle": "Surroundings",
@@ -208,7 +210,8 @@
       "telefono_placeholder": "+39 000 0000000",
       "ospiti_placeholder": "2"
     },
-    "servizi_extra": "We partner with <bike>Treviso Bike</bike> for bicycle rental and with a private taxi service for your transfers — Antonio Vettore <tel>347 305 9916</tel>."
+    "bike_service": "<bold>Bicycle rental</bold> — <bike>Treviso Bike</bike>",
+    "taxi_service": "<bold>Private taxi</bold> — Antonio Vettore <tel>347 305 9916</tel>"
   },
   "footer": {
     "tagline": "Farmhouse surrounded by the greenery of the Treviso countryside, a few minutes from the historic centre of Treviso.",

@@ -5,7 +5,7 @@
  */
 import { motion } from "framer-motion";
 import { useState } from "react";
-import { Mail, Phone, MapPin } from "lucide-react";
+import { Mail, MapPin, Bike, Car } from "lucide-react";
 import { useTranslation, Trans } from "react-i18next";
 import { trackEvent } from "@/lib/analytics";
 
@@ -119,30 +119,44 @@ export default function ContactSection() {
             </div>
 
             {/* Servizi extra */}
-            <p
-              className="mt-5 text-[13px] text-[#2C2C2C]/60 leading-[1.7]"
-              style={{ fontFamily: "var(--font-body)", fontWeight: 300 }}
-            >
-              <Trans
-                i18nKey="contact_section.servizi_extra"
-                components={{
-                  bike: (
-                    <a
-                      href="https://treviso.bike/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-[#C4A265] hover:underline"
-                    />
-                  ),
-                  tel: (
-                    <a
-                      href="tel:+393473059916"
-                      className="text-[#C4A265] hover:underline"
-                    />
-                  ),
-                }}
-              />
-            </p>
+            <div className="mt-5 pt-5 border-t border-[#C4A265]/20 space-y-3">
+              <div className="flex items-center gap-3">
+                <Bike size={16} className="text-[#C4A265] shrink-0" strokeWidth={1.5} />
+                <p className="text-[13px] text-[#2C2C2C]/70 leading-[1.6]" style={{ fontFamily: "var(--font-body)", fontWeight: 300 }}>
+                  <Trans
+                    i18nKey="contact_section.bike_service"
+                    components={{
+                      bold: <span className="font-medium text-[#2C2C2C]" />,
+                      bike: (
+                        <a
+                          href="https://treviso.bike/"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-[#C4A265] hover:underline"
+                        />
+                      ),
+                    }}
+                  />
+                </p>
+              </div>
+              <div className="flex items-center gap-3">
+                <Car size={16} className="text-[#C4A265] shrink-0" strokeWidth={1.5} />
+                <p className="text-[13px] text-[#2C2C2C]/70 leading-[1.6]" style={{ fontFamily: "var(--font-body)", fontWeight: 300 }}>
+                  <Trans
+                    i18nKey="contact_section.taxi_service"
+                    components={{
+                      bold: <span className="font-medium text-[#2C2C2C]" />,
+                      tel: (
+                        <a
+                          href="tel:+393473059916"
+                          className="text-[#C4A265] hover:underline"
+                        />
+                      ),
+                    }}
+                  />
+                </p>
+              </div>
+            </div>
           </motion.div>
 
           {/* Right: Form */}

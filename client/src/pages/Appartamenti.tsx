@@ -5,7 +5,7 @@
 import { useState, useEffect, useCallback } from "react";
 import { useTranslation } from "react-i18next";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronLeft, ChevronRight, UtensilsCrossed, Thermometer, Wifi, BedDouble, Droplets, Sparkles, TreePine, ParkingCircle, PlugZap, WashingMachine } from "lucide-react";
+import { ChevronLeft, ChevronRight, UtensilsCrossed, Thermometer, Wifi, BedDouble, Droplets, Sparkles, TreePine, ParkingCircle, PlugZap, WashingMachine, LogIn, LogOut } from "lucide-react";
 import { Link } from "wouter";
 import Header from "@/components/Header";
 import ContactSection from "@/components/ContactSection";
@@ -243,16 +243,38 @@ export default function Appartamenti() {
               </motion.div>
             ))}
           </div>
-          <motion.p
+          <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.3 }}
-            className="text-center text-[11px] text-[#2C2C2C]/40 mt-14 tracking-wide"
-            style={{ fontFamily: "var(--font-body)" }}
+            className="mt-12 pt-8 border-t border-[#C4A265]/20"
           >
-            {t("appartamenti.note")}
-          </motion.p>
+            <div className="flex flex-col sm:flex-row justify-center gap-5 sm:gap-16 mb-6">
+              <div className="flex items-center gap-3 justify-center">
+                <LogIn size={16} className="text-[#C4A265] shrink-0" strokeWidth={1.5} />
+                <p className="text-[13px] text-[#2C2C2C]/70 leading-[1.6]" style={{ fontFamily: "var(--font-body)", fontWeight: 300 }}>
+                  <span className="font-medium text-[#2C2C2C]">Check-in</span>
+                  {" · "}
+                  {t("appartamenti.checkin_info")}
+                </p>
+              </div>
+              <div className="flex items-center gap-3 justify-center">
+                <LogOut size={16} className="text-[#C4A265] shrink-0" strokeWidth={1.5} />
+                <p className="text-[13px] text-[#2C2C2C]/70 leading-[1.6]" style={{ fontFamily: "var(--font-body)", fontWeight: 300 }}>
+                  <span className="font-medium text-[#2C2C2C]">Check-out</span>
+                  {" · "}
+                  {t("appartamenti.checkout_info")}
+                </p>
+              </div>
+            </div>
+            <p
+              className="text-center text-[11px] text-[#2C2C2C]/40 tracking-wide"
+              style={{ fontFamily: "var(--font-body)" }}
+            >
+              {t("appartamenti.note")}
+            </p>
+          </motion.div>
         </div>
       </section>
 

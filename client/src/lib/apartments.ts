@@ -29,7 +29,7 @@ export const apartments: Apartment[] = [
     shortDescription: "Villa Anna è l'appartamento più ampio di Ca' Bianchini, sviluppato su due livelli con ambienti luminosi. La cucina semi-professionale e gli ampi spazi lo rendono ideale per chi desidera soggiornare insieme con comodità.",
     description: "Villa Anna è l'appartamento più ampio di Ca' Bianchini, sviluppato su due livelli con ambienti luminosi. La cucina semi-professionale e gli ampi spazi lo rendono ideale per chi desidera soggiornare insieme con comodità.\n\nL'ingresso di Villa Anna vi accoglie con il portico dotato di tavoli e sedie per i vostri momenti conviviali. Il piano terra è composto di una cucina semiprofessionale (frigo, freezer, forno a gas, fuochi grandi e due piastre elettriche, lavastoviglie rapida, bollitore, macchina da caffè americano, tostapane), contigua zona pranzo, un soggiorno con due divani, una piccola sala lettura, bagno con doccia e una cameretta singola.\n\nIl primo piano ospita 1 camera doppia extra large con bagno, 1 camera doppia standard con bagno, 1 camera doppia standard e 1 camera singola con bagno in comune.",
     coverImage: "/images/villa-anna/Villa-Anna_Slider-1.webp",
-    images: Array.from({ length: 14 }, (_, i) => `/images/villa-anna/Villa-Anna_Slider-${i + 1}.webp`),
+    images: Array.from({ length: 15 }, (_, i) => `/images/villa-anna/Villa-Anna_Slider-${i + 1}.webp`),
     floorPlanImage: "/images/foto-planimetrie/planvillaanna-ITA-2.webp",
     petsAllowed: true,
   },

@@ -87,9 +87,10 @@
         "p2": "Il centro storico è ricco di chiese affrescate, tra cui il Duomo e la chiesa di San Nicolò. Il mercato coperto, i caffè storici e la tradizione gastronomica locale completano l'esperienza."
       },
       "venezia": {
-        "title": "Venezia",
+        "title": "Venezia e Laguna",
         "subtitle": "A un passo dalla laguna",
-        "p1": "Venezia è facilmente raggiungibile e rappresenta una delle mete più affascinanti del territorio. Una giornata tra calli, ponti e palazzi storici permette di scoprire uno dei luoghi più unici al mondo."
+        "p1": "Venezia è facilmente raggiungibile e rappresenta una delle mete più affascinanti del territorio. Una giornata tra calli, ponti e palazzi storici permette di scoprire uno dei luoghi più unici al mondo.",
+        "p2": "Oltre alla visita della città, è possibile scoprire la laguna di Venezia in modo più tranquillo e autentico, attraverso escursioni in barca tra isole, canali e paesaggi naturali. Su richiesta è possibile organizzare tour privati contattando direttamente <flaline>Laguna Fla Line</flaline>, che propone diverse esperienze alla scoperta della laguna."
       },
       "prosecco": {
         "title": "Le colline del Prosecco",
@@ -112,8 +113,9 @@
         "title": "Natura e percorsi",
         "subtitle": "Itinerari tra campi e fiumi",
         "p1": "Il territorio offre numerosi percorsi immersi nella natura, ideali per passeggiate e giri in bicicletta.",
-        "p2": "La Ciclovia del Sile permette di pedalare lungo il fiume fino a Treviso. I percorsi tra i campi e i filari di vite offrono panorami tipici della campagna veneta.",
-        "p3": "Il Parco Naturale del Fiume Sile, a pochi minuti da Ca' Bianchini, è un'area protetta ideale per passeggiate nella natura."
+        "p2": "Da Treviso parte la Restera del Sile, un percorso lungo il fiume che arriva fino alla laguna di Jesolo. Poco distante si trova anche la Via Ostiglia, una pista ciclabile che attraversa la campagna tra Veneto e Lombardia.",
+        "p3": "Per chi ama percorsi più panoramici, è possibile raggiungere le colline del Prosecco o il Montello, con itinerari tra vigneti, boschi e piccoli borghi. Per approfondire i percorsi e trovare idee di itinerari è possibile consultare le <tours>proposte di Treviso Bike</tours>.",
+        "p4": "Su richiesta è possibile <rent>noleggiare biciclette tramite Treviso Bike</rent>, con una convenzione riservata agli ospiti."
       },
       "montagne": {
         "title": "Le montagne",

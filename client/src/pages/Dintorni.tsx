@@ -3,7 +3,7 @@
  * Hero slider full-page → intro centrato → sezioni alternanti (foto/slider sx + testo dx)
  */
 import { useState, useEffect, useCallback } from "react";
-import { useTranslation } from "react-i18next";
+import { useTranslation, Trans } from "react-i18next";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import Header from "@/components/Header";
@@ -171,7 +171,19 @@ export default function Dintorni() {
     },
     {
       key: "venezia",
-      paragraphKeys: ["p1"],
+      paragraphKeys: ["p1", "p2"],
+      transComponents: {
+        p2: {
+          flaline: (
+            <a
+              href="https://lagunaflaline.it/home/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[#C4A265] hover:underline"
+            />
+          ),
+        },
+      } as Record<string, Record<string, React.ReactElement>>,
       images: [
         "/images/dintorni/venezia/Venezia-1.webp",
         "/images/dintorni/venezia/Venezia-2.webp",
@@ -211,7 +223,29 @@ export default function Dintorni() {
     },
     {
       key: "natura",
-      paragraphKeys: ["p1", "p2", "p3"],
+      paragraphKeys: ["p1", "p2", "p3", "p4"],
+      transComponents: {
+        p3: {
+          tours: (
+            <a
+              href="https://treviso.bike/tour-giornalieri/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[#C4A265] hover:underline"
+            />
+          ),
+        },
+        p4: {
+          rent: (
+            <a
+              href="https://treviso.bike/servizi/rent/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[#C4A265] hover:underline"
+            />
+          ),
+        },
+      } as Record<string, Record<string, React.ReactElement>>,
       images: [
         "/images/dintorni/Ciclovia-Sile-1.webp",
         "/images/dintorni/Ciclovia-Sile-2.webp",
@@ -297,9 +331,19 @@ export default function Dintorni() {
                     className="space-y-3 text-[#2C2C2C]/70 text-[13px] leading-[1.6]"
                     style={{ fontFamily: "var(--font-body)", fontWeight: 300 }}
                   >
-                    {s.paragraphKeys.map((pk) => (
-                      <p key={pk}>{t(`dintorni.sections.${s.key}.${pk}`)}</p>
-                    ))}
+                    {s.paragraphKeys.map((pk) => {
+                      const components = (s as any).transComponents?.[pk];
+                      return components ? (
+                        <p key={pk}>
+                          <Trans
+                            i18nKey={`dintorni.sections.${s.key}.${pk}`}
+                            components={components}
+                          />
+                        </p>
+                      ) : (
+                        <p key={pk}>{t(`dintorni.sections.${s.key}.${pk}`)}</p>
+                      );
+                    })}
                   </div>
                 </div>
               </div>

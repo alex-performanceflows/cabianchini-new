@@ -87,9 +87,10 @@
         "p2": "The historic centre is rich in frescoed churches, including the Cathedral and the Church of San Nicolò. The covered market, historic cafés and local gastronomic tradition complete the experience."
       },
       "venezia": {
-        "title": "Venice",
+        "title": "Venice and the Lagoon",
         "subtitle": "A step from the lagoon",
-        "p1": "Venice is easily reachable and is one of the most fascinating destinations in the area. A day spent among calli, bridges and historic palaces allows you to discover one of the most unique places in the world."
+        "p1": "Venice is easily reachable and is one of the most fascinating destinations in the area. A day spent among calli, bridges and historic palaces allows you to discover one of the most unique places in the world.",
+        "p2": "Beyond visiting the city itself, you can explore the Venice lagoon in a quieter and more authentic way, through boat trips among islands, canals and natural landscapes. On request, private tours can be arranged by contacting <flaline>Laguna Fla Line</flaline> directly, which offers a variety of experiences to discover the lagoon."
       },
       "prosecco": {
         "title": "The Prosecco Hills",
@@ -112,8 +113,9 @@
         "title": "Nature & trails",
         "subtitle": "Itineraries through fields and rivers",
         "p1": "The area offers numerous trails through nature, ideal for walks and cycling.",
-        "p2": "The Sile Cycle Path allows you to cycle along the river all the way to Treviso. The routes through fields and vineyards offer typical views of the Venetian countryside.",
-        "p3": "The Sile River Natural Park, a few minutes from Ca' Bianchini, is a protected area ideal for nature walks."
+        "p2": "From Treviso begins the Restera del Sile, a path along the river that reaches the Jesolo lagoon. Nearby is also the Via Ostiglia, a cycle path that crosses the countryside between Veneto and Lombardy.",
+        "p3": "For those who enjoy more panoramic routes, you can reach the Prosecco Hills or the Montello, with itineraries through vineyards, woods and small villages. To explore the routes and find itinerary ideas, you can browse the <tours>Treviso Bike proposals</tours>.",
+        "p4": "On request, bicycles can be rented through <rent>Treviso Bike</rent>, with a special arrangement reserved for our guests."
       },
       "montagne": {
         "title": "The mountains",

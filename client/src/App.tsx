@@ -25,8 +25,18 @@ function RootRedirect() {
   return null;
 }
 
+function ScrollToTop() {
+  const [location] = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location]);
+  return null;
+}
+
 function Router() {
   return (
+    <>
+      <ScrollToTop />
     <Switch>
       {/* Root redirect */}
       <Route path={"/"} component={RootRedirect} />
@@ -66,6 +76,7 @@ function Router() {
       <Route path={"/404"} component={NotFound} />
       <Route component={NotFound} />
     </Switch>
+    </>
   );
 }
 

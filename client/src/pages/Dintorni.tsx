@@ -192,6 +192,42 @@ export default function Dintorni() {
       ],
     },
     {
+      key: "natura",
+      paragraphKeys: ["p1", "p2", "p3"],
+      transComponents: {
+        p2: {
+          tours: (
+            <a
+              href="https://treviso.bike/tour-giornalieri/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[#C4A265] hover:underline"
+            />
+          ),
+        },
+        p3: {
+          rent: (
+            <a
+              href="https://treviso.bike/servizi/rent/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[#C4A265] hover:underline"
+            />
+          ),
+        },
+      } as Record<string, Record<string, React.ReactElement>>,
+      images: [
+        "/images/dintorni/Ciclovia-Sile-1.webp",
+        "/images/dintorni/Ciclovia-Sile-2.webp",
+        "/images/dintorni/natura-percorsi/Natura-Percorsi-1.webp",
+        "/images/dintorni/natura-percorsi/Natura-Percorsi-2.webp",
+        "/images/dintorni/natura-percorsi/Natura-Percorsi-3.webp",
+        "/images/dintorni/natura-percorsi/Natura-Percorsi-4.webp",
+        "/images/dintorni/natura-percorsi/Natura-Percorsi-5.webp",
+        "/images/dintorni/natura-percorsi/Natura-Percorsi-6.webp",
+      ],
+    },
+    {
       key: "prosecco",
       paragraphKeys: ["p1", "p2"],
       images: [
@@ -219,42 +255,6 @@ export default function Dintorni() {
         "/images/dintorni/Montagne-4.webp",
         "/images/dintorni/montagne/Montagne-1.webp",
         "/images/dintorni/montagne/Montagne-2.webp",
-      ],
-    },
-    {
-      key: "natura",
-      paragraphKeys: ["p1", "p2", "p3", "p4"],
-      transComponents: {
-        p3: {
-          tours: (
-            <a
-              href="https://treviso.bike/tour-giornalieri/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-[#C4A265] hover:underline"
-            />
-          ),
-        },
-        p4: {
-          rent: (
-            <a
-              href="https://treviso.bike/servizi/rent/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-[#C4A265] hover:underline"
-            />
-          ),
-        },
-      } as Record<string, Record<string, React.ReactElement>>,
-      images: [
-        "/images/dintorni/Ciclovia-Sile-1.webp",
-        "/images/dintorni/Ciclovia-Sile-2.webp",
-        "/images/dintorni/natura-percorsi/Natura-Percorsi-1.webp",
-        "/images/dintorni/natura-percorsi/Natura-Percorsi-2.webp",
-        "/images/dintorni/natura-percorsi/Natura-Percorsi-3.webp",
-        "/images/dintorni/natura-percorsi/Natura-Percorsi-4.webp",
-        "/images/dintorni/natura-percorsi/Natura-Percorsi-5.webp",
-        "/images/dintorni/natura-percorsi/Natura-Percorsi-6.webp",
       ],
     },
   ];

@@ -368,7 +368,7 @@ export default function AppartamentoDetail() {
                 className="bg-[#F5F3EF] flex items-center justify-center"
               >
                 <img
-                  src={apt.floorPlanImage}
+                  src={(lang === "en" && apt.floorPlanImageEn) ? apt.floorPlanImageEn : apt.floorPlanImage}
                   alt={`${t("appartamenti.detail.floorplan")} ${apt.name}`}
                   className="w-full h-[250px] md:h-[350px] object-contain p-4"
                   loading="lazy"
@@ -376,7 +376,7 @@ export default function AppartamentoDetail() {
               </motion.div>
             )}
             {/* Foto dell'appartamento */}
-            {apt.images.slice(0, apt.floorPlanImage ? 5 : 6).map((img, i) => (
+            {apt.images.map((img, i) => (
               <motion.div
                 key={i}
                 initial={{ opacity: 0, y: 20 }}
@@ -399,7 +399,7 @@ export default function AppartamentoDetail() {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: (apt.images.slice(0, 5).length + i) * 0.08 }}
+                transition={{ duration: 0.5, delay: (apt.images.length + i) * 0.08 }}
               >
                 <img
                   src={img}

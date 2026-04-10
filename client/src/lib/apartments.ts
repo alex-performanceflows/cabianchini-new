@@ -12,6 +12,7 @@ export interface Apartment {
   coverImage: string;
   images: string[];
   floorPlanImage?: string;
+  floorPlanImageEn?: string;
   /** Extra photos shown only in the gallery grid, NOT in the hero slider */
   galleryExtras?: string[];
   disabledAccess?: boolean;
@@ -44,6 +45,7 @@ export const apartments: Apartment[] = [
     description: "L'appartamento è situato nella parte centrale della casa ed è strutturato su due livelli, con climatizzazione centralizzata a pompa di calore.\n\nVilla Bina è un ampio e luminoso appartamento. Il piano terra ospita un soggiorno spazioso con due divani e il tavolo da pranzo, toilette, ripostiglio e la cucina a vista dotata di fornello e forno a gas, frigorifero, piccolo freezer e lavastoviglie. Vi è inoltre un accesso al giardino sul retro, dove trovate tavolo e sedie per i vostri pranzi all'aria aperta.\n\nAl piano superiore si trovano le 3 camere doppie e bagno privato ciascuna, e l'accesso al loggiato esterno in comune con Villa Arzilla.",
     coverImage: "/images/appartamenti/villa-bina/Villa-Bina_Slider1.webp",
     floorPlanImage: "/images/foto-planimetrie/planvillabina-ITA.webp",
+    floorPlanImageEn: "/images/foto-planimetrie/planvillabina-ENG.webp",
     images: [
       "/images/appartamenti/villa-bina/Villa-Bina_Slider1.webp",
       "/images/appartamenti/villa-bina/Villa-Bina_Slider2.webp",
@@ -72,8 +74,9 @@ export const apartments: Apartment[] = [
     shortDescription: "Confortevole appartamento per piccoli gruppi, con due camere doppie e accesso al giardino sul retro per pranzi all'aperto.",
     description: "L'appartamento è situato nella parte centrale della casa ed è strutturato su due livelli, con climatizzazione centralizzata a pompa di calore.\n\nVilla Coco è un confortevole appartamento adatto per gruppi di 3-4 persone. Il piano terra è composto di un ampio soggiorno con divani e tavolo da pranzo, una piccola toilette, ripostiglio e la cucina, dotata di fornello e forno a gas, frigorifero, piccolo freezer e lavastoviglie. Vi è inoltre un accesso al giardino sul retro dove trovate tavolo e sedie per i vostri pranzi all'aria aperta.\n\nAl piano superiore si trovano le 2 camere doppie ed i rispettivi bagni con doccia e vasca.",
     coverImage: "/images/villa-coco/Villa-Coco_Slider-1.webp",
-    images: Array.from({ length: 7 }, (_, i) => `/images/villa-coco/Villa-Coco_Slider-${i + 1}.webp`),
+    images: Array.from({ length: 6 }, (_, i) => `/images/villa-coco/Villa-Coco_Slider-${i + 1}.webp`),
     floorPlanImage: "/images/foto-planimetrie/planvillacoco-ITA-1.webp",
+    floorPlanImageEn: "/images/foto-planimetrie/planvillacoco-ENG.webp",
     petsAllowed: false,
   },
   {
@@ -86,8 +89,9 @@ export const apartments: Apartment[] = [
     shortDescription: "Ideale per coppie e piccole famiglie, accessibile a persone con disabilità motoria. Camera matrimoniale con loggiato esterno.",
     description: "Villa Arzilla è un appartamento ideale per coppie, piccole famiglie e ospiti con disabilità motoria.\n\nL'ingresso, sul lato ovest, dà sul soggiorno arredato con divano, due poltrone e tavolo da pranzo. La cucina a vista, seppur di piccole dimensioni è dotata di tutto il necessario: fornello e forno a gas, frigorifero, freezer e lavastoviglie. Al piano terra sono collocate anche una camera singola, con accesso al giardino sul retro, e il bagno con doccia attrezzato per gli ospiti con disabilità motoria.\n\nLa scala in legno conduce al piano superiore dove troverete un'ampia camera matrimoniale con bagno con doccia e loggiato esterno in comune con Villa Bina. In giardino tavolo e sedie per pranzare all'aperto.",
     coverImage: "/images/villa-arzilla/Villa-Arzilla_Slider-1.webp",
-    images: Array.from({ length: 10 }, (_, i) => `/images/villa-arzilla/Villa-Arzilla_Slider-${i + 1}.webp`),
+    images: Array.from({ length: 14 }, (_, i) => `/images/villa-arzilla/Villa-Arzilla_Slider-${i + 1}.webp`),
     floorPlanImage: "/images/foto-planimetrie/planvillaarzilla-ITA-1.webp",
+    floorPlanImageEn: "/images/foto-planimetrie/planvillaarzilla-ENG.webp",
     galleryExtras: ["/images/villa-arzilla/Villa-Arzilla-Piano-Terra.webp"],
     petsAllowed: true,
     disabledAccess: true,
@@ -104,6 +108,7 @@ export const apartments: Apartment[] = [
     coverImage: "/images/alloggio-marina/Alloggio-Marina_Slider-1.webp",
     images: [1, 3, 4, 5, 6, 7, 8, 9, 10].map((n) => `/images/alloggio-marina/Alloggio-Marina_Slider-${n}.webp`),
     floorPlanImage: "/images/foto-planimetrie/planalloggiomarina-ITA.webp",
+    floorPlanImageEn: "/images/foto-planimetrie/planalloggiomarina-ENG.webp",
     petsAllowed: true,
   },
 ];

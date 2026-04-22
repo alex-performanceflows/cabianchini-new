@@ -121,6 +121,7 @@ export const heroImages = [
   "/images/slider_home/Header_Slider-4.webp",
   "/images/slider_home/Header_Slider-5.webp",
   "/images/slider_home/Header_Slider-6.webp",
+  "/images/slider_home/Header_Slider-7.webp",
 ];
 
 // Immagini per la sezione "Il Soggiorno" (piscina / campagna)

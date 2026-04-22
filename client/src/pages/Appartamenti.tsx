@@ -18,10 +18,6 @@ const heroSlides = [
   "/images/slider_appartamenti/Appartamenti_Slider-1.webp",
   "/images/slider_appartamenti/Appartamenti_Slider-2.webp",
   "/images/slider_appartamenti/Appartamenti_Slider-3.webp",
-  "/images/slider_appartamenti/Appartamenti_Slider-4.webp",
-  "/images/slider_appartamenti/Appartamenti_Slider-5.webp",
-  "/images/slider_appartamenti/Appartamenti_Slider-6.webp",
-  "/images/slider_appartamenti/Appartamenti_Slider-7.webp",
 ];
 
 function HeroSlider() {

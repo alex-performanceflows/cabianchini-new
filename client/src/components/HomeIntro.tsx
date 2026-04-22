@@ -26,7 +26,7 @@ export default function HomeIntro() {
           </h2>
 
           <div
-            className="space-y-3 text-[#2C2C2C]/70 text-[13px] leading-[1.6] mb-6"
+            className="space-y-3 text-[#2C2C2C]/70 text-[15px] leading-[1.7] mb-6"
             style={{ fontFamily: "var(--font-body)", fontWeight: 300 }}
           >
             <p>{t("home.intro.p1")}</p>
@@ -35,7 +35,7 @@ export default function HomeIntro() {
           </div>
 
           <p
-            className="text-[#2C2C2C] text-[13px] italic mb-6"
+            className="text-[#2C2C2C] text-[15px] italic mb-6"
             style={{ fontFamily: "var(--font-heading)", fontStyle: "italic" }}
           >
             {t("home.intro.quote")}
